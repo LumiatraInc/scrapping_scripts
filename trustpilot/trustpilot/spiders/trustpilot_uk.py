@@ -38,4 +38,12 @@ class TrustpilotUkSpider(scrapy.Spider):
         about_section = response.css(".paper_paper__1PY90.paper_outline__lwsUX.card_card__lQWDv.card_noPadding__D8PcU.styles_sideColumnCard__eyHWa")
         about = about_section.css(".styles_container__9nZxD.customer-generated-content::text").extract_first()
 
+        yield {
+            "business_name": business_name,
+            "total_reviews": total_reviews,
+            "ratings": ratings,
+            "total_ratings": total_ratings,
+            "about": about,
+        }
+
 
