@@ -7,6 +7,16 @@ import scrapy
 
 
 class TrustpilotItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    business_name = scrapy.Field()
+    business_about = scrapy.Field()
+    business_logo = scrapy.Field()
+    business_categories = scrapy.Field()
+    is_verified = scrapy.Field()
+    business_address = scrapy.Field()
+    website = scrapy.Field()
+    phone_number = scrapy.Field()
+    ratings = scrapy.Field()
+    total_ratings = scrapy.Field()
+    total_reviews = scrapy.Field()
+    business_email = scrapy.Field()
+
