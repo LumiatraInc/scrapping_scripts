@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class GooglemapSpider(scrapy.Spider):
     name = "googlemap"
-    allowed_domains = ["google.com"]
+    allowed_domains = ["google.com", ]
     start_urls = [
         "https://www.google.com/maps/@-1.2082248,36.9218576,15z?entry=ttu"]
 
@@ -20,7 +20,7 @@ class GooglemapSpider(scrapy.Spider):
 
     def parse(self, response):
         self.driver.get(response.url)
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             lambda driver: driver.execute_script(
                 "return document.readyState") == "complete"
         )
@@ -35,7 +35,7 @@ class GooglemapSpider(scrapy.Spider):
 
         business_listings_section = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(
-                (By.CSS_SELECTOR, "div.k7jAl.miFGmb.lJ3Kh.PLbyfe"))
+                (By.CSS_SELECTOR, "div.aIFcqe div.m6QErb div.m6QErb.DxyBCb div.m6QErb.DxyBCb.kA9KIf"))
         )
         print("------------------------------------------------------------> ")
         print(
@@ -44,34 +44,42 @@ class GooglemapSpider(scrapy.Spider):
         print("------------------------------------------------------------> ")
 
         # loading indicator classes
+        # end_of_list_element = self.driver.find_element(By.CSS_SELECTOR, "div.m6QErb.tLjsW.eKbjU div.PbZDve p span span.HlvSq")
+        # print(f"end of list element {end_of_list_element}")
+        time.sleep(5)
 
         # scroll to load more businesses
-
-        start_time = time.time()
+        print("------------------------------------------------------------->")
+        print("Begin scrolling")
         while True:
-            self.driver.execute_script(
-                "arguments[0].scrollBy(0, 500);", business_listings_section)
+            self.driver.execute_script('arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_listings_section)
+            time.sleep(5)
             try:
-                loading_spinner = WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located(
-                        (By.CSS_SELECTOR, "div div.lXJj5c.Hk4XGb div.qjESne.veYFef"))
-                )
-                if loading_spinner.is_displayed():
-                    start_time = time.time()
-
-            except Exception:
-                pass
-
-            if (time.time() - start_time >= 10):
+                # if this element becomes visible, stop scrolling
+                end_of_list_element = self.driver.find_element(By.CSS_SELECTOR, "div.m6QErb.tLjsW.eKbjU div.PbZDve p span span.HlvSq")
                 break
+            except Exception as e:
+                continue
 
-        # selector = Selector(text=self.driver.page_source)
+        print("------------------------------------------------------------>")
+        print("End scrolling")
 
-        # results_section = selector.css(
-        #     'div.m6QErb.DxyBCb.kA9KIf.dS8AEf.ecceSd div')
 
-        # businesses = results_section.css(
-        #     "div div.Nv2PK.THOPZb.CpccDe").getall()
-        # print(f"We have {len(businesses)}")
+        selector = Selector(text=self.driver.page_source)
+
+        results_section = selector.css(
+            'div.m6QErb.DxyBCb.kA9KIf.dS8AEf.ecceSd div')
+
+        businesses = results_section.css(
+            "div div.Nv2PK.THOPZb.CpccDe").getall()
+        print(f"We have {len(businesses)}")
 
         self.driver.quit()
+
+
+
+
+
+
+
+
