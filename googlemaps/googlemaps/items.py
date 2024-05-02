@@ -17,6 +17,7 @@ class GooglemapsItem(scrapy.Item):
     business_hours = scrapy.Field()
     phone_number = scrapy.Field()
     website = scrapy.Field()
+    services = scrapy.Field()
     photos = scrapy.Field()
     ratings = scrapy.Field()
     total_ratings = scrapy.Field()
