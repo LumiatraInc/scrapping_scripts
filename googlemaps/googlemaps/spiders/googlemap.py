@@ -97,11 +97,6 @@ class GooglemapSpider(scrapy.Spider):
             business_about:str = None
             website:str = None
             phone_number:str = None
-            service_options:list[str] = None
-            highlights:list[str] = None
-            offerings:list[str] = None
-            amenities:list[str] = None
-            payment_method:list[str] = None
 
             business_about_div = selector.css(
                 f"div.y0K5Df[aria-label='About {business_name}'] button.XJ8h0e div div div.PYvSYb")
@@ -126,6 +121,7 @@ class GooglemapSpider(scrapy.Spider):
                 phone_number = phone_number_btn.css("::attr(aria-label)").get()
 
             image_links = self.get_business_photos(business_name=business_name)
+            services = self.get_business_services(business_name=business_name)
 
             rating_section = selector.css("div.PPCwl div.Bd93Zb div.jANrlb")
             ratings = rating_section.css("div.fontDisplayLarge::text").get()
@@ -135,6 +131,7 @@ class GooglemapSpider(scrapy.Spider):
             business["search_term"] = search_term
             business["business_name"] = business_name
             business["business_about"] = business_about
+            business["services"] = services
             business["map_link"] = url
             business["business_type"] = business_type
             business["business_address"] = business_address
@@ -160,6 +157,7 @@ class GooglemapSpider(scrapy.Spider):
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, f"div.aIFcqe div.m6QErb.Hk4XGb[aria-label='Photos of {business_name}'] div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.m6QErb"))
             )
+            time.sleep(1)
 
             selector = Selector(text=self.driver.page_source)
             image_divs = selector.css(
@@ -167,44 +165,136 @@ class GooglemapSpider(scrapy.Spider):
             if image_divs:
                 image_links = image_divs.css("::attr(style)").getall()
 
-            time.sleep(1)
             cancel_button = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, "div#image-header div button.b3vVFf")
                 )
             )
             cancel_button.click()
+            time.sleep(1)
+
 
             return image_links
 
         except Exception as e:
-            print(f"AN error occured while getting {business_name} photos: {e}")
+            print(f"An error occurred while getting {business_name} photos")
             return None
         
 
     def get_business_reviews(self, business_name: str) -> list[dict]:
         raise NotImplementedError("This method is not implemented")
     
-    def get_business_about_info(self, business_name: str) -> dict | None:
+    def get_business_services(self, business_name: str) -> dict[str, list[str]] | None:
         try:
             about_btn = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, f"div.RWPxGd[role='tablist'] button[aria-label='About '{business_name}]")
+                    (By.CSS_SELECTOR, f"div.RWPxGd[role='tablist'] button[aria-label='About {business_name}']")
                 )
             )
             about_btn.click()
-            time.sleep(1)
+            time.sleep(2)
 
             selector = Selector(text=self.driver.page_source)
 
-            about_sections = selector.css(f"div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.iP2t7d.fontBodyMedium")
+            about_sections = selector.css("div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.iP2t7d.fontBodyMedium")
+            print("================================================================")
+            print(f"ABout sections {len(about_sections)}")
+            print("================================================================")
 
-            if about_sections:
-                # service_section = 
-                ...
-            
+
+            interested_options = []
+            highlights_options = []
+            offerings_options = []
+            amenities_options = []
+            crowd_options = []
+            planning_options = []
+            payment_options = []
+            accesibility_options = []
+            dining_options = []
+            atmosphere_options = []
+            parking_options = []
+
+
+            for section in about_sections:
+                section_name = section.css("h2::text").get()
+                print("***************************************************************")
+                print(f"section name {section_name}")
+                print("***************************************************************")
+
+
+                if section_name == "Service options":
+                    all_service_options = ["Dine-in", "Delivery", "Takeaway"]
+                    services_not_interested = section.css("ul li.hpLkKe.WeoVJe span::text").getall()
+                    interested_options = [
+                        service 
+                        for service in all_service_options 
+                        if service in services_not_interested 
+                    ]
+                    print(f"interested_options {interested_options}")
+
+                elif section_name == "Highlights":
+                    highlights_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"Highlights {highlights_options}")
+
+                elif section_name == "Offerings":
+                    offerings_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"offer {offerings_options}")
+
+                elif section_name == "Amenities":
+                    amenities_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"amenities {amenities_options}")
+
+                elif section_name == "Crowd":
+                    crowd_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"Crowd options {crowd_options}")
+
+                elif section_name == "Planning":
+                    planning_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"planning_options {planning_options}")
+
+                elif section_name == "Payments":
+                    payment_options = section.css("ul li span::attr(aria-label)").getall()
+                    print(f"payment_options {payment_options}")
+
+                elif section_name == "Accesibility":
+                    accesibility_options = section.css("ul li span::attr(aria-label)").getall()
+
+                elif section_name == "Dining options":
+                    dining_options = section.css("ul li span::attr(aria-label)").getall()
+
+                elif section_name == "Atmosphere":
+                    atmosphere_options = section.css("ul li span::attr(aria-label)").getall()
+
+                elif section_name == "Parking":
+                    parking_options = section.css("ul li span::attr(aria-label)").getall()
+
+                else:
+                    print(f"Add section name {section_name}")
+
+            overview_btn = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, f"div.RWPxGd[role='tablist'] button[aria-label='Overview of {business_name}']")
+                )
+            )
+            overview_btn.click()
+            time.sleep(2)
+
+            return {
+                "service_options": interested_options,
+                "highlights_options": highlights_options,
+                "offerings_options": offerings_options,
+                "amenities_options": amenities_options,
+                "crowd_options": crowd_options,
+                "planning_options": planning_options,
+                "payment_options": payment_options,
+                "accesibility_options": accesibility_options,
+                "dining_options": dining_options,
+                "atmospheric_conditions": atmosphere_options,
+                "parking_options": parking_options,
+            }
+
         except Exception as e:
-            print()
+            print(f"An error occurred while getting {business_name} services: {e}")
             return None
     
 
