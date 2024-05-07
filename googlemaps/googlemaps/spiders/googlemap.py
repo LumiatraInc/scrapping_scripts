@@ -121,7 +121,6 @@ class GooglemapSpider(scrapy.Spider):
             if phone_number_btn:
                 phone_number = phone_number_btn.css("::attr(aria-label)").get()
 
-            image_links = self.get_business_photos(business_name=business_name)
             services = self.get_business_services(business_name=business_name)
 
             rating_section = selector.css("div.PPCwl div.Bd93Zb div.jANrlb")
@@ -147,7 +146,22 @@ class GooglemapSpider(scrapy.Spider):
                 except Exception as e:
                     time.sleep(1)
 
-            time.sleep(10)
+            image_links = self.get_business_photos(business_name=business_name)
+
+            time.sleep(5)
+
+            while True:
+                self.driver.execute_script(
+                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
+                try:
+                    about_this_data = self.driver.find_element(
+                    By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
+                    break
+                except Exception as e:
+                    time.sleep(1)
+
+            time.sleep(5)
+                   
             selector = Selector(text=self.driver.page_source)
             socials = self.get_business_socials(
                 business_name=business_name, selector=selector)
@@ -206,7 +220,7 @@ class GooglemapSpider(scrapy.Spider):
             return image_links
 
         except Exception as e:
-            print(f"An error occurred while getting {business_name} photos")
+            print(f"======================***********************==================An error occurred while getting {business_name} photos {e}")
             return None
 
     def get_business_reviews(self, business_name: str) -> list[dict]:
