@@ -23,9 +23,5 @@ class GooglemapsItem(scrapy.Item):
     total_ratings = scrapy.Field()
     total_reviews = scrapy.Field()
     reviews = scrapy.Field()
-    instagram_link = scrapy.Field()
-    x_link = scrapy.Field()
-    youtube_link = scrapy.Field()
-    facebook_link = scrapy.Field()
-    pinterest_link = scrapy.Field()
+    socials = scrapy.Field()
 
