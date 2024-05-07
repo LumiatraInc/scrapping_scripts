@@ -37,7 +37,7 @@ class GooglemapSpider(scrapy.Spider):
             lambda driver: driver.execute_script(
                 "return document.readyState") == "complete"
         )
-        # time.sleep(30)
+        # time.sleep(60)
 
         business_listings_section = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(
@@ -93,10 +93,11 @@ class GooglemapSpider(scrapy.Spider):
             business_type = selector.css(
                 "div.LBgpqf div.skqShb div.fontBodyMedium span span button.DkEaL::text").get()
 
-            business_address:str = None
-            business_about:str = None
-            website:str = None
-            phone_number:str = None
+            business_address: str = None
+            business_about: str = None
+            website: str = None
+            phone_number: str = None
+            socials = None
 
             business_about_div = selector.css(
                 f"div.y0K5Df[aria-label='About {business_name}'] button.XJ8h0e div div div.PYvSYb")
@@ -125,8 +126,36 @@ class GooglemapSpider(scrapy.Spider):
 
             rating_section = selector.css("div.PPCwl div.Bd93Zb div.jANrlb")
             ratings = rating_section.css("div.fontDisplayLarge::text").get()
+
             total_reviews = rating_section.css(
                 "button.HHrUdb.fontTitleSmall.rqjGif span::text").get()
+
+            # get social media links
+            business_div = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
+            )
+            print(f"business div {business_div.id=}")
+            
+            while True:
+                self.driver.execute_script(
+                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
+                try:
+                    about_this_data = self.driver.find_element(
+                    By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
+                    break
+                except Exception as e:
+                    time.sleep(1)
+
+            time.sleep(10)
+            selector = Selector(text=self.driver.page_source)
+            socials = self.get_business_socials(
+                business_name=business_name, selector=selector)
+
+            self.driver.back()
+            time.sleep(5)
+
+            selector = Selector(text=self.driver.page_source)
 
             business["search_term"] = search_term
             business["business_name"] = business_name
@@ -141,6 +170,7 @@ class GooglemapSpider(scrapy.Spider):
             business["ratings"] = ratings
             business["total_reviews"] = total_reviews
             business["photos"] = image_links
+            business["socials"] = socials
 
         return business
 
@@ -173,22 +203,21 @@ class GooglemapSpider(scrapy.Spider):
             cancel_button.click()
             time.sleep(1)
 
-
             return image_links
 
         except Exception as e:
             print(f"An error occurred while getting {business_name} photos")
             return None
-        
 
     def get_business_reviews(self, business_name: str) -> list[dict]:
         raise NotImplementedError("This method is not implemented")
-    
+
     def get_business_services(self, business_name: str) -> dict[str, list[str]] | None:
         try:
             about_btn = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, f"div.RWPxGd[role='tablist'] button[aria-label='About {business_name}']")
+                    (By.CSS_SELECTOR,
+                     f"div.RWPxGd[role='tablist'] button[aria-label='About {business_name}']")
                 )
             )
             about_btn.click()
@@ -196,11 +225,8 @@ class GooglemapSpider(scrapy.Spider):
 
             selector = Selector(text=self.driver.page_source)
 
-            about_sections = selector.css("div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.iP2t7d.fontBodyMedium")
-            print("================================================================")
-            print(f"ABout sections {len(about_sections)}")
-            print("================================================================")
-
+            about_sections = selector.css(
+                "div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.iP2t7d.fontBodyMedium")
 
             interested_options = []
             highlights_options = []
@@ -214,66 +240,73 @@ class GooglemapSpider(scrapy.Spider):
             atmosphere_options = []
             parking_options = []
 
-
             for section in about_sections:
                 section_name = section.css("h2::text").get()
-                print("***************************************************************")
-                print(f"section name {section_name}")
-                print("***************************************************************")
-
 
                 if section_name == "Service options":
                     all_service_options = ["Dine-in", "Delivery", "Takeaway"]
-                    services_not_interested = section.css("ul li.hpLkKe.WeoVJe span::text").getall()
+                    services_not_interested = section.css(
+                        "ul li.hpLkKe.WeoVJe span::text").getall()
                     interested_options = [
-                        service 
-                        for service in all_service_options 
-                        if service in services_not_interested 
+                        service
+                        for service in all_service_options
+                        if service in services_not_interested
                     ]
                     print(f"interested_options {interested_options}")
 
                 elif section_name == "Highlights":
-                    highlights_options = section.css("ul li span::attr(aria-label)").getall()
+                    highlights_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"Highlights {highlights_options}")
 
                 elif section_name == "Offerings":
-                    offerings_options = section.css("ul li span::attr(aria-label)").getall()
+                    offerings_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"offer {offerings_options}")
 
                 elif section_name == "Amenities":
-                    amenities_options = section.css("ul li span::attr(aria-label)").getall()
+                    amenities_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"amenities {amenities_options}")
 
                 elif section_name == "Crowd":
-                    crowd_options = section.css("ul li span::attr(aria-label)").getall()
+                    crowd_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"Crowd options {crowd_options}")
 
                 elif section_name == "Planning":
-                    planning_options = section.css("ul li span::attr(aria-label)").getall()
+                    planning_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"planning_options {planning_options}")
 
                 elif section_name == "Payments":
-                    payment_options = section.css("ul li span::attr(aria-label)").getall()
+                    payment_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
                     print(f"payment_options {payment_options}")
 
                 elif section_name == "Accesibility":
-                    accesibility_options = section.css("ul li span::attr(aria-label)").getall()
+                    accesibility_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
 
                 elif section_name == "Dining options":
-                    dining_options = section.css("ul li span::attr(aria-label)").getall()
+                    dining_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
 
                 elif section_name == "Atmosphere":
-                    atmosphere_options = section.css("ul li span::attr(aria-label)").getall()
+                    atmosphere_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
 
                 elif section_name == "Parking":
-                    parking_options = section.css("ul li span::attr(aria-label)").getall()
+                    parking_options = section.css(
+                        "ul li span::attr(aria-label)").getall()
 
                 else:
                     print(f"Add section name {section_name}")
 
             overview_btn = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, f"div.RWPxGd[role='tablist'] button[aria-label='Overview of {business_name}']")
+                    (By.CSS_SELECTOR,
+                     f"div.RWPxGd[role='tablist'] button[aria-label='Overview of {business_name}']")
                 )
             )
             overview_btn.click()
@@ -294,7 +327,50 @@ class GooglemapSpider(scrapy.Spider):
             }
 
         except Exception as e:
-            print(f"An error occurred while getting {business_name} services: {e}")
+            print(
+                f"An error occurred while getting {business_name} services: {e}")
             return None
-    
 
+    def get_business_socials(self, business_name: str, selector: Selector) -> dict:
+        source_url = selector.css("iframe.rvN3ke::attr(src)").get()
+        socials: dict = {}
+
+        print(f"maps.google.com{source_url}")
+
+        if source_url:
+            try:
+                url = "https://maps.google.com" + source_url
+                self.driver.get(url)
+                WebDriverWait(self.driver, 180).until(
+                lambda driver: driver.execute_script(
+                    "return document.readyState") == "complete"
+                )
+
+                selector = Selector(text=self.driver.page_source)
+                web_results_section = selector.css("div.HTomEb.P0BCpd.GLttn.wFAQK")
+
+                results_texts = web_results_section.css(
+                    "div.u2OlCc span::text").getall()
+
+                for result in results_texts:
+                    if "instagram.com" in result:
+                        socials["instagram"] = result
+                    elif "facebook.com" in result:
+                        socials["facebook"] = result
+                    elif "twitter.com" in result:
+                        socials["twitter"] = result
+                    elif "tiktok.com" in result:
+                        socials["tiktok"] = result
+                    elif "youtube.com" in result:
+                        socials["youtube"] = result
+                    else:
+                        if "other_links" in socials.keys():
+                            socials["other_links"].append(result)
+                        else:
+                            socials["other_links"] = [result,]
+                        print(f"website {result}")
+                        
+            except Exception as e:
+                print(f"Error occured ===================== {e}")
+        
+        return socials
