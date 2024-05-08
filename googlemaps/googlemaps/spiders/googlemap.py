@@ -99,6 +99,7 @@ class GooglemapSpider(scrapy.Spider):
             website: str = None
             phone_number: str = None
             socials = None
+            reviews: list[dict] = None
 
             business_about_div = selector.css(
                 f"div.y0K5Df[aria-label='About {business_name}'] button.XJ8h0e div div div.PYvSYb")
@@ -130,15 +131,18 @@ class GooglemapSpider(scrapy.Spider):
             total_reviews = rating_section.css(
                 "button.HHrUdb.fontTitleSmall.rqjGif span::text").get()
 
-            # get social media links
+            # get business photos
 
             print("=================== get business photos")
 
             image_links = self.get_business_photos(business_name=business_name)
 
+            # get business reviews
+
+            reviews = self.get_business_reviews()
             
 
-            # get social media links
+            # get business socials
 
             print("==================== get business socials")
 
@@ -163,6 +167,7 @@ class GooglemapSpider(scrapy.Spider):
             business["total_reviews"] = total_reviews
             business["photos"] = image_links
             business["socials"] = socials
+            business["reviews"] = reviews
 
         return business
 
@@ -221,8 +226,43 @@ class GooglemapSpider(scrapy.Spider):
             cancel_button.click()
             return None
 
-    def get_business_reviews(self, business_name: str) -> list[dict]:
-        raise NotImplementedError("This method is not implemented")
+    def get_business_reviews(self) -> list[dict]:
+        business_div = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
+        )
+
+        while True:
+                self.driver.execute_script(
+                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
+                try:
+                    about_this_data = self.driver.find_element(
+                        By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
+                    time.sleep(5)
+                    if about_this_data.is_displayed() and about_this_data.is_enabled():
+                        break
+                except Exception as e:
+                    time.sleep(1)
+
+        selector = Selector(text=self.driver.page_source)
+
+        review_list = selector.css("div.aIFcqe > div.m6QErb.WNBkOb > div.jftiEf.fontBodyMedium")
+        print(f"=============================== We have {len(review_list)} reviews")
+
+        reviews:list[dict] = []
+        for review in review_list:
+            reviewer_name = review.css("div div.jJc9Ad div.GHT2ce.NsCY4 div div.WNxzHc.qLhwHc button.al6Kxe div.d4r55::text").get()
+            review_duration = review.css("div div.jJc9Ad div.GHT2ce div.DU9Pgb span.rsqaWe::text").get()
+            review_stars = review.css("div div.jJc9Ad div.GHT2ce div.DU9Pgb span.kvMYJc::attr(aria-label)").get()
+            review_comment = review.css("div div.jJc9Ad div.GHT2ce div div.MyEned span.wiI7pd::text").get()
+            reviews.append({
+                "reviewer_name": reviewer_name,
+                "reviewer_duration": review_duration,
+                "review_stars": review_stars,
+                "review_comment": review_comment,
+            })
+
+        return reviews
 
     def get_business_services(self, business_name: str) -> dict[str, list[str]] | None:
         try:
@@ -337,23 +377,6 @@ class GooglemapSpider(scrapy.Spider):
             return None
 
     def get_business_socials(self) -> dict:
-        business_div = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
-        )
-
-        while True:
-                self.driver.execute_script(
-                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
-                try:
-                    about_this_data = self.driver.find_element(
-                        By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
-                    time.sleep(5)
-                    if about_this_data.is_displayed() and about_this_data.is_enabled():
-                        break
-                except Exception as e:
-                    time.sleep(1)
-
         selector = Selector(text=self.driver.page_source)
         
         source_url = selector.css("iframe.rvN3ke::attr(src)").get()
