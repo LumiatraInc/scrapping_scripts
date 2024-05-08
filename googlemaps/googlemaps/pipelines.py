@@ -35,7 +35,11 @@ class GooglemapsPipeline:
         if "total_reviews" in business and business["total_reviews"]:
             value:str = business["total_reviews"]
             cleaned_value = value.replace("reviews", "").strip()
-            business["total_reviews"] = cleaned_value
+
+            if "," in cleaned_value:
+                cleaned_value = cleaned_value.replace(",", "_")
+                
+            business["total_reviews"] = int(cleaned_value)
         
         if "ratings" in business and business["ratings"]:
             value:str = business["ratings"]
