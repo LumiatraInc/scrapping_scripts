@@ -3,6 +3,7 @@ import scrapy
 from scrapy.responsetypes import Response
 from scrapy.selector import Selector
 from selenium import webdriver
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -47,17 +48,17 @@ class GooglemapSpider(scrapy.Spider):
         time.sleep(5)
 
         # scroll to load more businesses
-        while True:
-            self.driver.execute_script(
-                'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_listings_section)
-            time.sleep(5)
-            try:
-                # if this element becomes visible, stop scrolling
-                end_of_list_element = self.driver.find_element(
-                    By.CSS_SELECTOR, "div.m6QErb.tLjsW.eKbjU div.PbZDve p span span.HlvSq")
-                break
-            except Exception as e:
-                continue
+        # while True:
+        #     self.driver.execute_script(
+        #         'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_listings_section)
+        #     time.sleep(5)
+        #     try:
+        #         # if this element becomes visible, stop scrolling
+        #         end_of_list_element = self.driver.find_element(
+        #             By.CSS_SELECTOR, "div.m6QErb.tLjsW.eKbjU div.PbZDve p span span.HlvSq")
+        #         break
+        #     except Exception as e:
+        #         continue
 
         selector = Selector(text=self.driver.page_source)
 
@@ -66,7 +67,7 @@ class GooglemapSpider(scrapy.Spider):
 
         businesses = results_section.css(
             "div div.Nv2PK.THOPZb.CpccDe")
-        print(f"We have {len(businesses)}")
+        print(f"We have {len(businesses)} businesses")
 
         for business in businesses:
             time.sleep(5)
@@ -130,41 +131,18 @@ class GooglemapSpider(scrapy.Spider):
                 "button.HHrUdb.fontTitleSmall.rqjGif span::text").get()
 
             # get social media links
-            business_div = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
-            )
-            print(f"business div {business_div.id=}")
-            
-            while True:
-                self.driver.execute_script(
-                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
-                try:
-                    about_this_data = self.driver.find_element(
-                    By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
-                    break
-                except Exception as e:
-                    time.sleep(1)
+
+            print("=================== get business photos")
 
             image_links = self.get_business_photos(business_name=business_name)
 
-            time.sleep(5)
+            
 
-            while True:
-                self.driver.execute_script(
-                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
-                try:
-                    about_this_data = self.driver.find_element(
-                    By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
-                    break
-                except Exception as e:
-                    time.sleep(1)
+            # get social media links
 
-            time.sleep(5)
-                   
-            selector = Selector(text=self.driver.page_source)
-            socials = self.get_business_socials(
-                business_name=business_name, selector=selector)
+            print("==================== get business socials")
+
+            socials = self.get_business_socials()
 
             self.driver.back()
             time.sleep(5)
@@ -190,13 +168,32 @@ class GooglemapSpider(scrapy.Spider):
 
     def get_business_photos(self, business_name: str) -> list[str] | None:
         try:
-            image_links = None
+            business_div = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
+            )
+
             all_photos_btn = WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, "div.cRLbXd div.dryRY div.ofKBgf button.K4UgGe[aria-label='All']"))
             )
 
+            # scroll to the photos section
+            while True:
+                self.driver.execute_script(
+                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
+                try:
+                    if all_photos_btn.is_enabled() and all_photos_btn.is_displayed():
+                        break
+                except Exception as e:
+                    time.sleep(1)
+
+            time.sleep(5)
+
             all_photos_btn.click()
+
+            image_links = None
+
             business_photos_section = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, f"div.aIFcqe div.m6QErb.Hk4XGb[aria-label='Photos of {business_name}'] div.m6QErb.DxyBCb.kA9KIf.dS8AEf div.m6QErb"))
@@ -214,13 +211,14 @@ class GooglemapSpider(scrapy.Spider):
                     (By.CSS_SELECTOR, "div#image-header div button.b3vVFf")
                 )
             )
-            cancel_button.click()
+            
             time.sleep(1)
-
+            cancel_button.click()
             return image_links
 
         except Exception as e:
-            print(f"======================***********************==================An error occurred while getting {business_name} photos {e}")
+            print("An error occurred while getting {business_name} photos {e}")
+            cancel_button.click()
             return None
 
     def get_business_reviews(self, business_name: str) -> list[dict]:
@@ -266,37 +264,30 @@ class GooglemapSpider(scrapy.Spider):
                         for service in all_service_options
                         if service in services_not_interested
                     ]
-                    print(f"interested_options {interested_options}")
 
                 elif section_name == "Highlights":
                     highlights_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"Highlights {highlights_options}")
 
                 elif section_name == "Offerings":
                     offerings_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"offer {offerings_options}")
 
                 elif section_name == "Amenities":
                     amenities_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"amenities {amenities_options}")
 
                 elif section_name == "Crowd":
                     crowd_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"Crowd options {crowd_options}")
 
                 elif section_name == "Planning":
                     planning_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"planning_options {planning_options}")
 
                 elif section_name == "Payments":
                     payment_options = section.css(
                         "ul li span::attr(aria-label)").getall()
-                    print(f"payment_options {payment_options}")
 
                 elif section_name == "Accesibility":
                     accesibility_options = section.css(
@@ -345,7 +336,26 @@ class GooglemapSpider(scrapy.Spider):
                 f"An error occurred while getting {business_name} services: {e}")
             return None
 
-    def get_business_socials(self, business_name: str, selector: Selector) -> dict:
+    def get_business_socials(self) -> dict:
+        business_div = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.w6VYqd div.bJzME.tTVLSc div.k7jAl.miFGmb.lJ3Kh  div.e07Vkf.kA9KIf"))
+        )
+
+        while True:
+                self.driver.execute_script(
+                    'arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', business_div)
+                try:
+                    about_this_data = self.driver.find_element(
+                        By.CSS_SELECTOR, "div.ZM8Zp div div iframe.rvN3ke")
+                    time.sleep(5)
+                    if about_this_data.is_displayed() and about_this_data.is_enabled():
+                        break
+                except Exception as e:
+                    time.sleep(1)
+
+        selector = Selector(text=self.driver.page_source)
+        
         source_url = selector.css("iframe.rvN3ke::attr(src)").get()
         socials: dict = {}
 
@@ -356,12 +366,13 @@ class GooglemapSpider(scrapy.Spider):
                 url = "https://maps.google.com" + source_url
                 self.driver.get(url)
                 WebDriverWait(self.driver, 180).until(
-                lambda driver: driver.execute_script(
-                    "return document.readyState") == "complete"
+                    lambda driver: driver.execute_script(
+                        "return document.readyState") == "complete"
                 )
 
                 selector = Selector(text=self.driver.page_source)
-                web_results_section = selector.css("div.HTomEb.P0BCpd.GLttn.wFAQK")
+                web_results_section = selector.css(
+                    "div.HTomEb.P0BCpd.GLttn.wFAQK")
 
                 results_texts = web_results_section.css(
                     "div.u2OlCc span::text").getall()
@@ -383,8 +394,8 @@ class GooglemapSpider(scrapy.Spider):
                         else:
                             socials["other_links"] = [result,]
                         print(f"website {result}")
-                        
+
             except Exception as e:
                 print(f"Error occured ===================== {e}")
-        
+
         return socials
