@@ -8,6 +8,7 @@ import scrapy
 
 class BingmapsItem(scrapy.Item):
     business_name = scrapy.Field()
+    search_term = scrapy.Field()
     business_link = scrapy.Field()
     business_status = scrapy.Field()
     address = scrapy.Field()
@@ -17,6 +18,7 @@ class BingmapsItem(scrapy.Item):
     rating = scrapy.Field()
     total_reviews = scrapy.Field()
     total_ratings = scrapy.Field()
+    source = scrapy.Field()
 
 
     
