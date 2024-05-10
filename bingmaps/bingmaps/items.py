@@ -7,6 +7,16 @@ import scrapy
 
 
 class BingmapsItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    business_name = scrapy.Field()
+    business_link = scrapy.Field()
+    business_status = scrapy.Field()
+    address = scrapy.Field()
+    phone_number = scrapy.Field()
+    website = scrapy.Field()
+    socials = scrapy.Field()
+    rating = scrapy.Field()
+    total_reviews = scrapy.Field()
+    total_ratings = scrapy.Field()
+
+
+    
