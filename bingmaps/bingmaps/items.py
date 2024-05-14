@@ -1,5 +1,3 @@
-# Define here the models for your scraped items
-#
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
@@ -8,6 +6,8 @@ import scrapy
 
 class BingmapsItem(scrapy.Item):
     business_name = scrapy.Field()
+    business_about = scrapy.Field()
+    business_type = scrapy.Field()
     search_term = scrapy.Field()
     business_link = scrapy.Field()
     business_status = scrapy.Field()
