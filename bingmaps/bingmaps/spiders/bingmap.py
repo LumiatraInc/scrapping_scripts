@@ -9,6 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.common.action_chains import ActionChains
 
 from bingmaps.items import BingmapsItem
 
@@ -23,6 +24,7 @@ class BingmapSpider(scrapy.Spider):
         self.search_term = "shops in London"
 
     def parse(self, response: Response):
+        # self.driver.maximize_window()
         self.driver.get(response.url)
         WebDriverWait(self.driver, 180).until(
             lambda driver: driver.execute_script(
@@ -48,7 +50,7 @@ class BingmapSpider(scrapy.Spider):
                 time.sleep(5)
                 selector = Selector(text=self.driver.page_source)
 
-                # businesses_div = selector.css("div.entity-listing-container div.b_rich ul.b_vList.b_divsec li")
+                businesses_div = selector.css("div.entity-listing-container div.b_rich ul.b_vList.b_divsec li a")
                 businesses_div = self.driver.find_elements(By.CSS_SELECTOR, "div.entity-listing-container div.b_rich ul.b_vList.b_divsec li a")
 
 
@@ -61,8 +63,8 @@ class BingmapSpider(scrapy.Spider):
 
                 time.sleep(2)
 
-                next_btn = self.driver.find_element(By.CSS_SELECTOR, "a.bm_rightChevron[aria-label='Next Page']")
-                print(f"")
+                next_btn = self.driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Page']")
+                print(f"next_btn {next_btn}")
                 if next_btn.is_displayed() and next_btn.is_enabled():
                     next_btn.click()
                     WebDriverWait(self.driver, 10).until(
@@ -91,6 +93,9 @@ class BingmapSpider(scrapy.Spider):
         time.sleep(5)
         self.driver.quit()
 
+    def open_business_as_new_card(self):
+        raise NotImplemented()
+
 
     def parse_business(self, business: WebElement) -> BingmapsItem:
 
@@ -105,6 +110,7 @@ class BingmapSpider(scrapy.Spider):
             business_status: str = None
             rating: str = None
             total_reviews: str = None
+            business_about: str = None
             search_term = self.search_term
             source = "Bing Maps"
 
@@ -126,6 +132,7 @@ class BingmapSpider(scrapy.Spider):
                 if business_info_box:
                     infos = self.parse_business_info(business_info_box)
                     business_name = infos.get("business_name")
+                    business_about = infos.get("business_about")
                     website = infos.get("website")
                     business_status = infos.get("business_status")
                     address = infos.get("address")
@@ -140,6 +147,7 @@ class BingmapSpider(scrapy.Spider):
 
             
             new_business["business_name"] = business_name
+            new_business["business_about"] = business_about
             new_business["business_link"] = self.driver.current_url
             new_business["business_status"] = business_status
             new_business["address"] = address
@@ -151,6 +159,8 @@ class BingmapSpider(scrapy.Spider):
             new_business["total_ratings"] = 5
             new_business["source"] = source
             new_business["search_term"] = search_term
+
+            print(f"new_business {new_business}")
 
 
             # close the business card
@@ -186,9 +196,13 @@ class BingmapSpider(scrapy.Spider):
         print("step 5")
         website = self.get_business_website_link(elements)
 
+        print("step 6")
+        business_about = self.get_business_about(elements)
+
 
         return {
             "business_name": business_name,
+            "business_about": business_about,
             "business_status": business_status,
             "address": address,
             "phone_number": phone_number,
@@ -203,6 +217,12 @@ class BingmapSpider(scrapy.Spider):
         
         return None
     
+    def get_business_about(self, elements: SelectorList[Selector]) -> str | None:
+        about_el = elements.css("div#wire4 span")
+        if about_el:
+            return about_el.css("::attr(title)").get()
+
+    
     def get_business_status(self, elements: SelectorList[Selector]) -> str | None:
         business_name_el = elements.css("div.infoModule.b_divsec.bottomBleed.noSeparator div.b_annotate div.bm_annotationRoot h2.nameContainer")
         business_status_el = business_name_el.css("div.infobubble_item.isclaimedinfobubble_item")
@@ -212,21 +232,21 @@ class BingmapSpider(scrapy.Spider):
         return None
     
     def get_business_address(self, elements: SelectorList[Selector]) -> str | None:
-        address_el = elements.css("div#IconItem_2 > div.iconDataList::text")
+        address_el = elements.css("div[aria-label='Address'] > div.iconDataList::text")
         if address_el:
             return address_el.get()
         
         return None
 
     def get_business_phone_number(self, elements: SelectorList[Selector]) -> str | None:
-        phone_number_el = elements.css("div#IconItem_3 > a.longNum::attr(href)")
+        phone_number_el = elements.css("div[aria-label='Phone'] > a::attr(href)")
         if phone_number_el:
             return phone_number_el.get()
         
         return None
     
     def get_business_website_link(self, elements: SelectorList[Selector]) -> str | None:
-        website_el = elements.css("div#IconItem_4 a")
+        website_el = elements.css("div[aria-label='Website'] a")
         if website_el:
             return website_el.css("::attr(href)").get()
         
@@ -271,3 +291,4 @@ class BingmapSpider(scrapy.Spider):
 
         return socials
     
+
