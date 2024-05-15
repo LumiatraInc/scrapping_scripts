@@ -31,3 +31,4 @@ class BingmapsPipeline:
                     business[field] = value.replace("tel:", "").strip()
             
         return item
+

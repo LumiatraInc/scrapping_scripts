@@ -115,7 +115,7 @@ class BingmapSpider(scrapy.Spider):
         phone_number: str = None
         website: str = None
         business_status: str = None
-        rating: str = None
+        review_ratings: str = None
         total_reviews: str = None
         business_about: str = None
         search_term = self.search_term
@@ -147,7 +147,7 @@ class BingmapSpider(scrapy.Spider):
                     address = infos.get("address")
                     phone_number = infos.get("phone_number")
 
-                rating = self.get_business_ratings(selector)
+                review_ratings = self.get_business_review_ratings(selector)
 
                 total_reviews = self.get_total_business_reviews(selector)
 
@@ -164,7 +164,7 @@ class BingmapSpider(scrapy.Spider):
             new_business["phone_number"] = phone_number
             new_business["website"] = website
             new_business["socials"] = socials
-            new_business["rating"] = rating
+            new_business["review_ratings"] = review_ratings
             new_business["total_reviews"] = total_reviews
             new_business["total_ratings"] = 5
             new_business["source"] = source
@@ -298,7 +298,7 @@ class BingmapSpider(scrapy.Spider):
         except Exception:
             return None
     
-    def get_business_ratings(self, elements: SelectorList[Selector]) -> str | None:
+    def get_business_review_ratings(self, elements: SelectorList[Selector]) -> str | None:
         try:
             rating_el = elements.css("div#slideexp0_B899C6c div.b_slidesContainer div.b_viewport.scrollbar div#slideexp0_B899C6 div.slide a.wr_rv div.wr_rat")
             if rating_el:
