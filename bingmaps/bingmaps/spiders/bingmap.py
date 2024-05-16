@@ -305,18 +305,37 @@ class BingmapSpider(scrapy.Spider):
         except Exception:
             return None
         
-    # def get_business_hours(self, elements):
-    #     business_hours_el = elements.css("div[aria-label='Hours'] > span.opHours")
-    #     if business_hours_el:
-    #         active_status_el = business_hours_el.css("span[title='See more hours'] > span::text")
-    #         if active_status_el:
-    #             active_status = active_status_el.get()
+    def get_business_hours(self, elements: SelectorList[Selector]):
+        business_hours: dict = {}
+        business_hours_el = elements.css("div[aria-label='Hours'] > span.opHours")
+        if business_hours_el:
+            active_status = self.get_active_status(business_hours_el)
 
-    #         show_more_btn = self.driver.find_element(By.CSS_SELECTOR, "div[aria-label='Hours'] > span.opHours > span[title='See more hours'] > span[aria-label='Show more']")
-    #         i
+            hour_table = business_hours_el.css("div > table > tbody > tr")
+            for index, hour_data_el in enumerate(hour_table):
+                if index == 0:
+                    day_el = hour_data_el.css("td > span.e_bold::text")
+                    hour_el = hour_data_el.css("td > div.hrRangeGrp > div > span::text")
+                else:
+                    day_el = hour_data_el.css("td::text")
+                    hour_el = hour_data_el.css("td > div.hrRangeGrp > div::text")
+                
+                if hour_el:
+                    hour = hour_el.get()
+                
+                if day_el:
+                    day = day_el.get()
+                    business_hours[day] = hour
+                
+
+        return business_hours
             
-
-    def get_active_status(self, elements):...
+    def get_active_status(self, elements):
+        active_status_el = elements.css("span[title='See more hours'] > span::text")
+        if active_status_el:
+            active_status = active_status_el.get()
+            return active_status
+        return None
 
     
     def get_business_review_ratings(self, elements: SelectorList[Selector]) -> str | None:
