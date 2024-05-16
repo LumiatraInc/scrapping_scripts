@@ -146,6 +146,10 @@ class BingmapSpider(scrapy.Spider):
                     business_status = infos.get("business_status")
                     address = infos.get("address")
                     phone_number = infos.get("phone_number")
+                elif business_info_box := selector.css("div.b_subModule > div.compInfo.b_wfInfoCard.b_bizent"):
+                    infos = self.parse_business_info(business_info_box)
+                    
+
 
                 review_ratings = self.get_business_review_ratings(selector)
 
@@ -221,7 +225,8 @@ class BingmapSpider(scrapy.Spider):
         try:
             business_name_el = elements.css("div.infoModule.b_divsec.bottomBleed.noSeparator div.b_annotate div.bm_annotationRoot h2.nameContainer")
             if business_name_el:
-                return business_name_el.css("::text").get()
+                if business_name:= business_name_el.css("::text").get():
+                    return business_name
             
             return None
         except Exception:
@@ -234,7 +239,7 @@ class BingmapSpider(scrapy.Spider):
             if business_type_el:
                 return business_type_el.get().replace(".", "").strip()
             
-            business_type_el = elements.xpath("//div[contains(@class, 'infoModule'), contains(@class, 'b_divsec')]/div[contains(@class, 'b_factrow')]/text()")
+            business_type_el = elements.xpath("//div[@class='infoModule b_divsec topBleed noSeparator']/div[@class='b_factrow']/text()")
             if business_type_el:
                 return business_type_el.get().replace(".", "").strip()
             return None
@@ -244,12 +249,12 @@ class BingmapSpider(scrapy.Spider):
     
     def get_business_about(self, elements: SelectorList[Selector]) -> str | None:
         try:
-            about_el = elements.css("div.infoModule.b_divsec > div.ed_entity_desc > div.b_snippet_expansion > div.b_expandable_hidden_container.b_inline span")
+            about_el = elements.css("div.infoModule.b_divsec > div.ed_entity_desc > div.b_snippet_expansion > div.b_expandable_hidden_container.b_inline > span")
             if about_el:
                 return about_el.css("::attr(title)").get()
             
             # about_el = elements.css("div.infoModule.b_divsec > div.ed_entity_desc::text")
-            about_el = elements.xpath("//div[contains(@class, 'infoModule'), contains(@class, 'b_divsec')]/div[contains(@class, 'ed_entity_desc')]/text()")
+            about_el = elements.xpath("//div[@class='infoModule b_divsec']/div[@class='ed_entity_desc']/text()")
             if about_el:
                 return about_el.get()
             return None
@@ -272,7 +277,9 @@ class BingmapSpider(scrapy.Spider):
         try:
             address_el = elements.css("div[aria-label='Address'] > div.iconDataList::text")
             if address_el:
-                return address_el.get()
+                address = address_el.get()
+                if address:
+                    return address
             
             return None
         except Exception:
@@ -297,26 +304,62 @@ class BingmapSpider(scrapy.Spider):
             return None
         except Exception:
             return None
+        
+    # def get_business_hours(self, elements):
+    #     business_hours_el = elements.css("div[aria-label='Hours'] > span.opHours")
+    #     if business_hours_el:
+    #         active_status_el = business_hours_el.css("span[title='See more hours'] > span::text")
+    #         if active_status_el:
+    #             active_status = active_status_el.get()
+
+    #         show_more_btn = self.driver.find_element(By.CSS_SELECTOR, "div[aria-label='Hours'] > span.opHours > span[title='See more hours'] > span[aria-label='Show more']")
+    #         i
+            
+
+    def get_active_status(self, elements):...
+
     
     def get_business_review_ratings(self, elements: SelectorList[Selector]) -> str | None:
+        review_ratings: dict = {}
         try:
-            rating_el = elements.css("div#slideexp0_B899C6c div.b_slidesContainer div.b_viewport.scrollbar div#slideexp0_B899C6 div.slide a.wr_rv div.wr_rat")
-            if rating_el:
-                return rating_el.css("::text").get()
+            review_box = elements.css("div.lTabHead.dynWidth > div.lTabHdrs > div.lTabHdr")
+            for review_el in review_box:
+                web_name_el = review_el.css("div > div.mrtCaption > div.row1::text")
+                if web_name_el:
+                    web_name = web_name_el.get()
                 
-            return None
+                ratings_el = review_el.css("div > div.mrtCaption > div.row2 > span::text")
+                if ratings_el:
+                    ratings = ratings_el.get()
+                    no_reviews = ratings_el.getall()[-1]
+
+                if web_name:
+                    review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews}
+
+                
+
+            web_reviews_box = elements.css("div#slideexp0_EBBC85 > div > a")
+            for web_el in web_reviews_box:
+                web_name_el = web_el.css("div.wr_pub::text")
+                if web_name_el:
+                    web_name = web_name_el.get()
+
+                ratings_el = web_el.css("div.wr_rat::text")
+                if ratings_el:
+                    ratings = ratings_el.get()
+
+                no_reviews_el = web_el.css("div.wr_rev::text")
+                if no_reviews_el:
+                    no_reviews = no_reviews_el.get()
+
+                if web_name:
+                    review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews }
+
+            return review_ratings
         except Exception:
-            return None
+            print("=============> Something went wrong while getting review ratings")
+            return review_ratings
     
-    def get_total_business_reviews(self, elements: SelectorList[Selector]) -> str | None:
-        try:
-            total_reviews_el = elements.css("div#slideexp0_B899C6c div.b_slidesContainer div.b_viewport.scrollbar div#slideexp0_B899C6 div.slide a.wr_rv div.wr_rev.b_demoteText")
-            if total_reviews_el:
-                return total_reviews_el.css("::text").get()
-                
-            return None
-        except Exception:
-            return None
 
     def get_business_social_media(self, elements: SelectorList[Selector]) -> dict[str, str]:
         try:
