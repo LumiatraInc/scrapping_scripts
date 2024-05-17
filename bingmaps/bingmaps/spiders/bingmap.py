@@ -21,7 +21,7 @@ class BingmapSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         self.driver = webdriver.Chrome()
-        self.search_term = "shops in London"
+        self.search_term = "shopping malls in London"
 
     def parse(self, response: Response):
         # self.driver.maximize_window()
@@ -69,6 +69,7 @@ class BingmapSpider(scrapy.Spider):
                     )
 
                     time.sleep(4)
+                    # input("==================> Press to continue")
 
                 time.sleep(2)
 
@@ -120,6 +121,8 @@ class BingmapSpider(scrapy.Spider):
         business_about: str = None
         search_term = self.search_term
         source = "Bing Maps"
+        business_hours = {}
+        active_status: str = None
         try:
 
             if business.is_displayed() and business.is_enabled():
@@ -139,6 +142,10 @@ class BingmapSpider(scrapy.Spider):
 
                 if business_info_box:
                     infos = self.parse_business_info(business_info_box)
+                elif business_info_box := selector.css("div.b_subModule > div.compInfo.b_wfInfoCard.b_bizent"):
+                    infos = self.parse_business_info(business_info_box)
+
+                if infos:
                     business_name = infos.get("business_name")
                     business_about = infos.get("business_about")
                     business_type = infos.get("business_type")
@@ -146,14 +153,13 @@ class BingmapSpider(scrapy.Spider):
                     business_status = infos.get("business_status")
                     address = infos.get("address")
                     phone_number = infos.get("phone_number")
-                elif business_info_box := selector.css("div.b_subModule > div.compInfo.b_wfInfoCard.b_bizent"):
-                    infos = self.parse_business_info(business_info_box)
+                    business_hours = infos.get("business_hours")
+                    active_status = infos.get("active_status")
                     
 
 
                 review_ratings = self.get_business_review_ratings(selector)
 
-                total_reviews = self.get_total_business_reviews(selector)
 
                 # social media
                 socials = self.get_business_social_media(selector)
@@ -169,10 +175,11 @@ class BingmapSpider(scrapy.Spider):
             new_business["website"] = website
             new_business["socials"] = socials
             new_business["review_ratings"] = review_ratings
-            new_business["total_reviews"] = total_reviews
             new_business["total_ratings"] = 5
             new_business["source"] = source
             new_business["search_term"] = search_term
+            new_business["business_hours"] = business_hours
+            new_business["active_status"] = active_status
 
         except NoSuchElementException as ne:
                 print(f"Parse Business ========= An exception was thrown {ne}")
@@ -210,6 +217,11 @@ class BingmapSpider(scrapy.Spider):
         print("step 7")
         business_type = self.get_business_type(elements)
 
+        print("step 8")
+        business_hours = self.get_business_hours(elements)
+
+        active_status = business_hours.pop("active_status", None)
+
         return {
             "business_name": business_name,
             "business_about": business_about,
@@ -218,6 +230,8 @@ class BingmapSpider(scrapy.Spider):
             "address": address,
             "phone_number": phone_number,
             "website": website,
+            "business_hours": business_hours,
+            "active_status": active_status,
         }
     
 
@@ -237,7 +251,9 @@ class BingmapSpider(scrapy.Spider):
             # business_type_el = elements.css("div.infoModule.b_divsec.topBleed.noSeparator > div.b_factrow > a + text::text")
             business_type_el = elements.xpath("//div/a/following-sibling::text()")
             if business_type_el:
-                return business_type_el.get().replace(".", "").strip()
+                business_type = business_type_el.get().replace(".", "").strip()
+                if len(business_type) > 2:
+                    return business_type
             
             business_type_el = elements.xpath("//div[@class='infoModule b_divsec topBleed noSeparator']/div[@class='b_factrow']/text()")
             if business_type_el:
@@ -305,11 +321,12 @@ class BingmapSpider(scrapy.Spider):
         except Exception:
             return None
         
-    def get_business_hours(self, elements: SelectorList[Selector]):
+    def get_business_hours(self, elements: SelectorList[Selector]) -> dict:
         business_hours: dict = {}
         business_hours_el = elements.css("div[aria-label='Hours'] > span.opHours")
         if business_hours_el:
             active_status = self.get_active_status(business_hours_el)
+            business_hours["active_status"] = active_status
 
             hour_table = business_hours_el.css("div > table > tbody > tr")
             for index, hour_data_el in enumerate(hour_table):
@@ -330,7 +347,7 @@ class BingmapSpider(scrapy.Spider):
 
         return business_hours
             
-    def get_active_status(self, elements):
+    def get_active_status(self, elements) -> (str | None):
         active_status_el = elements.css("span[title='See more hours'] > span::text")
         if active_status_el:
             active_status = active_status_el.get()
@@ -338,27 +355,50 @@ class BingmapSpider(scrapy.Spider):
         return None
 
     
-    def get_business_review_ratings(self, elements: SelectorList[Selector]) -> str | None:
+    def get_business_review_ratings(self, elements: SelectorList[Selector]) -> dict:
         review_ratings: dict = {}
         try:
             review_box = elements.css("div.lTabHead.dynWidth > div.lTabHdrs > div.lTabHdr")
-            for review_el in review_box:
-                web_name_el = review_el.css("div > div.mrtCaption > div.row1::text")
-                if web_name_el:
-                    web_name = web_name_el.get()
-                
-                ratings_el = review_el.css("div > div.mrtCaption > div.row2 > span::text")
-                if ratings_el:
-                    ratings = ratings_el.get()
-                    no_reviews = ratings_el.getall()[-1]
+            if review_box:
+                for review_el in review_box:
+                    print(f"=====> Found review el {review_el}")
+                    web_name_el = review_el.css("div > div.mrtCaption > div.row1::text")
+                    if web_name_el:
+                        web_name = web_name_el.get()
+                    
+                    ratings_el = review_el.css("div > div.mrtCaption > div.row2 > span::text")
+                    if ratings_el:
+                        ratings = ratings_el.get()
+                        no_reviews = ratings_el.getall()[-1]
 
-                if web_name:
-                    review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews}
+                    if web_name:
+                        review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews}
+            
+            else:
+                review_box = elements.css("div.tabmpr > div.revFltr > div.b_bgbpad")
+                if review_box:
+                    web_name_el = elements.css("div.tabmpr > div.revFltr > div.b_bgbpad > a::attr(title)")
+                    
+                    reviews_elements = elements.css("div.tabmpr > div.revFltr > div.b_bgbpad > div.b_rev_header > a::text")
+                    if reviews_elements:
+                        no_reviews = reviews_elements.getall()[-1]
+                        try:
+                            ratings = reviews_elements.getall()[-3]
+                        except Exception:
+                            pass
 
-                
+                    if web_name_el:
+                        web_name = web_name_el.get()
+                        review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews }
 
-            web_reviews_box = elements.css("div#slideexp0_EBBC85 > div > a")
+
+
+            print(f"==========> first review ratings {review_ratings}")
+
+
+            web_reviews_box = elements.css("div[aria-label='Please use arrow keys to navigate'] > div > a")
             for web_el in web_reviews_box:
+                print(f"=====> Found review el {web_el}")
                 web_name_el = web_el.css("div.wr_pub::text")
                 if web_name_el:
                     web_name = web_name_el.get()
@@ -374,6 +414,7 @@ class BingmapSpider(scrapy.Spider):
                 if web_name:
                     review_ratings[web_name] = { "ratings": ratings, "no_reviews": no_reviews }
 
+            print(f"==========> second review ratings {review_ratings}")
             return review_ratings
         except Exception:
             print("=============> Something went wrong while getting review ratings")
