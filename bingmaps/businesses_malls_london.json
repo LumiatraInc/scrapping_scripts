@@ -1,0 +1,1090 @@
+[
+    {
+        "business_name": "Surrey Quays Shopping Centre",
+        "business_type": "· Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.495387%7E-0.046629&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "Redriff Road, London SE16 7LL",
+        "phone_number": "+442072375282",
+        "website": "https://www.surreyquays.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/SurreyQuays/",
+            "twitter": "https://twitter.com/SurreyQuays"
+        },
+        "review_ratings": {
+            "Facebook": {
+                "ratings": "3.2/5",
+                "no_reviews": "(867)"
+            },
+            "Yell": {
+                "ratings": "5.0/5",
+                "no_reviews": "(1)"
+            },
+            "Yelp": {
+                "ratings": "2.9/5",
+                "no_reviews": "19 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:30 - 19:00",
+            "Saturday": "09:00 - 19:00",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "09:30 - 19:00",
+            "Tuesday": "09:30 - 19:00",
+            "Wednesday": "09:30 - 19:00",
+            "Thursday": "09:30 - 19:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Westfield Stratford City",
+        "business_type": "· Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.543475%7E-0.006818&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "Montfichet Road, Olympic Park, London E20 1EJ",
+        "phone_number": "+442082217300",
+        "website": "http://uk.westfield.com/stratfordcity",
+        "socials": {
+            "facebook": "https://www.facebook.com/WestfieldStratfordCity1/",
+            "twitter": "https://twitter.com/westfieldstrat",
+            "instagram": "https://instagram.com/westfieldstratfordcity",
+            "youtube": "https://www.youtube.com/user/WestfieldUKChannel"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.0/5",
+                "no_reviews": "(1,921)"
+            },
+            "Facebook": {
+                "ratings": "4.4/5",
+                "no_reviews": "(12,874)"
+            },
+            "Yell": {
+                "ratings": "3.0/5",
+                "no_reviews": "(1)"
+            },
+            "Yelp": {
+                "ratings": "3.8/5",
+                "no_reviews": "6 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "10:00 - 21:00",
+            "Saturday": "09:00 - 21:00",
+            "Sunday": "12:00 - 18:00",
+            "Monday": "10:00 - 21:00",
+            "Tuesday": "10:00 - 21:00",
+            "Wednesday": "10:00 - 21:00",
+            "Thursday": "10:00 - 21:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "The Mall Wood Green",
+        "business_type": "· Shopping centre",
+        "business_about": "Community shopping centre in Wood Green, with 101 shops plus cinema and market hall.",
+        "business_link": "https://www.bing.com/maps?cp=51.594421%7E-0.109273&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "159 High Road, Wood Green, London N22 6YQ",
+        "phone_number": "+442088886667",
+        "website": "https://www.themall.co.uk/wood-green/",
+        "socials": {
+            "facebook": "https://www.facebook.com/themall.woodgreen/",
+            "twitter": "https://twitter.com/@kushtycosmetics",
+            "instagram": "https://instagram.com/kushtycosmetics",
+            "linkedin": "https://www.linkedin.com/company/the-mall-maidstone/",
+            "youtube": "https://www.youtube.com/channel/UCgFQd6IP_cmefyBPew_GxrQ"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "1.0/5",
+                "no_reviews": "(1)"
+            },
+            "Facebook": {
+                "ratings": "3.9/5",
+                "no_reviews": "(1,590)"
+            },
+            "Yelp": {
+                "ratings": "3.4/5",
+                "no_reviews": "11 reviews"
+            },
+            "Just-Eat": {
+                "ratings": "3.7/5",
+                "no_reviews": "43 reviews"
+            },
+            "Ubereats": {
+                "ratings": "3.5/5",
+                "no_reviews": "37 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:00 - 19:00",
+            "Saturday": "09:00 - 19:00",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "09:00 - 19:00",
+            "Tuesday": "09:00 - 19:00",
+            "Wednesday": "09:00 - 19:00",
+            "Thursday": "09:00 - 19:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Victoria Place Shopping Centre",
+        "business_type": "· Shopping centre",
+        "business_about": "Located right next to London Victoria Station, with a great collection of popular high-street shops like Boots, New Look, Next and Dorothy Perkins and …",
+        "business_link": "https://www.bing.com/maps?cp=51.494658%7E-0.145571&lvl=11.2",
+        "business_status": null,
+        "address": "115 Buckingham Palace Road, London SW1W 9SJ",
+        "phone_number": "+442079318811",
+        "website": "https://victoriaplace.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/victoriaplaceshopping/",
+            "twitter": "https://twitter.com/_VictoriaPlace",
+            "instagram": "https://instagram.com/bewonderagency",
+            "linkedin": "https://linkedin.com/company/bewonder-"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "3.5/5",
+                "no_reviews": "(37)"
+            },
+            "Facebook": {
+                "ratings": "4.4/5",
+                "no_reviews": "(98)"
+            },
+            "Yell": {
+                "ratings": "5.0/5",
+                "no_reviews": "(1)"
+            },
+            "Yelp": {
+                "ratings": "3.3/5",
+                "no_reviews": "10 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "06:00 - 23:00",
+            "Saturday": "06:00 - 23:00",
+            "Sunday": "06:00 - 23:00",
+            "Monday": "06:00 - 23:00",
+            "Tuesday": "06:00 - 23:00",
+            "Wednesday": "06:00 - 23:00",
+            "Thursday": "06:00 - 23:00"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "Westfield",
+        "business_type": "· Shopping centre",
+        "business_about": "At Ramco Cars, we understand that driving a supercar is a dream for many people. Our goal is to make that dream a reality by offering the ultimate supercar experience at Westfield London. And even if you can't get behind the wheel but still want to experience the thrill of sitting as a passenger, we have you covered! Our one hour supercar experience is for everyone to enjoy. So if you've always wanted to drive a Ferrari, Lamborghini, or Porsche, we have the perfect vehicle to satisfy your desires. Our fleet of prestigious supercars is designed to give you the opportunity to feel the raw power, stunning design, and exceptional performance of these iconic machines. Our team is dedicated to providing outstanding customer service, ensuring that your supercar experience is exceptional from start to finish. Whether you're celebrating a special occasion or simply treating yourself to an unforgettable adventure, we will go above and beyond to make your time with us truly unforgettable.",
+        "business_link": "https://www.bing.com/maps?cp=51.507414%7E-0.221095&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "1081 Ariel Way, London W12 7GF",
+        "phone_number": "+442033712300",
+        "website": "https://www.westfield.com/",
+        "socials": {
+            "facebook": "https://www.facebook.com/westfieldlondon1/",
+            "twitter": "http://www.twitter.com/Les4Temps",
+            "instagram": "https://www.instagram.com/westfieldutc",
+            "linkedin": "https://www.linkedin.com/company/unibail-rodamco-westfield-austria/",
+            "youtube": "https://www.youtube.com/user/StadshartAmstelveen"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.0/5",
+                "no_reviews": "(2,214)"
+            },
+            "Facebook": {
+                "ratings": "4.3/5",
+                "no_reviews": "(35,206)"
+            },
+            "Yelp": {
+                "ratings": "4.0/5",
+                "no_reviews": "277 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "11:00 - 01:00",
+            "Saturday": "11:00 - 23:00",
+            "Sunday": "11:00 - 23:00",
+            "Monday": "11:00 - 23:00",
+            "Tuesday": "11:00 - 23:00",
+            "Wednesday": "11:00 - 23:00",
+            "Thursday": "11:00 - 23:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Burlington Arcade",
+        "business_type": "· Shopping centre",
+        "business_about": "The Burlington Arcade is one of London's most elegant shopping destinations, which since the nineteenth century has mixed the classic and …",
+        "business_link": "https://www.bing.com/maps?cp=51.508507%7E-0.139717&lvl=11.2",
+        "business_status": null,
+        "address": "51 Piccadilly, London W1J 0QJ",
+        "phone_number": "+442074931764",
+        "website": "https://www.burlingtonarcade.com/",
+        "socials": {
+            "facebook": "https://www.facebook.com/BurlingtonArcadeLDN/",
+            "twitter": "https://twitter.com/burlingtonarcad",
+            "instagram": "https://instagram.com/burlingtonarcade",
+            "linkedin": "https://linkedin.com/company/71700085/admin"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.5/5",
+                "no_reviews": "(333)"
+            },
+            "Facebook": {
+                "ratings": "5.0/5",
+                "no_reviews": "(8)"
+            },
+            "Yelp": {
+                "ratings": "3.9/5",
+                "no_reviews": "19 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "08:00 - 19:00",
+            "Saturday": "09:00 - 19:00",
+            "Sunday": "11:00 - 18:00",
+            "Monday": "08:00 - 19:00",
+            "Tuesday": "08:00 - 19:00",
+            "Wednesday": "08:00 - 19:00",
+            "Thursday": "08:00 - 19:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "West One",
+        "business_type": "· Shopping centre",
+        "business_about": "West One Shopping is the leading London shopping & retail destination. Come & explore the best selection of popular shops, cafes and restaurants in …",
+        "business_link": "https://www.bing.com/maps?cp=51.513972%7E-0.149084&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "75 Davies Street, London W1K 5JN",
+        "phone_number": "+442074934820",
+        "website": "https://west1shopping.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/westoneshopping/",
+            "twitter": "https://twitter.com/westoneshopping",
+            "instagram": "https://instagram.com/westoneshopping"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "2.0/5",
+                "no_reviews": "1 review"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "06:30 - 22:00",
+            "Saturday": "08:00 - 22:00",
+            "Sunday": "10:00 - 21:00",
+            "Monday": "06:30 - 22:00",
+            "Tuesday": "06:30 - 22:00",
+            "Wednesday": "06:30 - 22:00",
+            "Thursday": "06:30 - 22:00"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "Stratford Shopping",
+        "business_type": "· Shopping centre",
+        "business_about": "Stratford Centre is a shopping mall and indoor market in Stratford town centre in east London. With over 60 stores, from fashion to food and …",
+        "business_link": "https://www.bing.com/maps?cp=51.541654%7E0.000208&lvl=11.2",
+        "business_status": null,
+        "address": "54A Broadway, Stratford E15 1NG",
+        "phone_number": "+442085365350",
+        "website": "https://stratfordshopping.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/stratfordcentre/",
+            "twitter": "https://twitter.com/stratfordcentre",
+            "instagram": "https://instagram.com/stratfordcentre"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "3.1/5",
+                "no_reviews": "10 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:00 - 18:00",
+            "Saturday": "09:00 - 18:00",
+            "Sunday": "10:00 - 18:00",
+            "Monday": "09:00 - 18:00",
+            "Tuesday": "09:00 - 18:00",
+            "Wednesday": "09:00 - 18:00",
+            "Thursday": "09:00 - 18:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Broadway Shopping Centre",
+        "business_type": "· Shopping centre",
+        "business_about": "Broadway Shopping Centre lies at the heart of Hammersmith in London. Connecting the famous Piccadilly and District Line Tube stations …",
+        "business_link": "https://www.bing.com/maps?cp=51.492107%7E-0.224023&lvl=11.2",
+        "business_status": null,
+        "address": "Hammersmith Broadway, London W6 9YE",
+        "phone_number": "+442085630131",
+        "website": "https://hammersmithbroadway.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/hammersmithbroadwayretail/",
+            "twitter": "https://twitter.com/hammersbroadway",
+            "instagram": "https://instagram.com/hammersmithbroadway"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "3.0/5",
+                "no_reviews": "9 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "07:30 - 18:00",
+            "Saturday": "08:00 - 18:00",
+            "Sunday": "08:00 - 18:00",
+            "Monday": "07:30 - 18:00",
+            "Tuesday": "07:30 - 18:00",
+            "Wednesday": "07:30 - 18:00",
+            "Thursday": "07:30 - 18:00"
+        },
+        "active_status": "Opens in 18 mins"
+    },
+    {
+        "business_name": "Carnaby London",
+        "business_type": "Public market",
+        "business_about": "Discover one of the most unique shopping and dining areas in London. Explore Carnaby, a shopping and dining destination found in the heart of …",
+        "business_link": "https://www.bing.com/maps?cp=51.512879%7E-0.138546&lvl=11.2",
+        "business_status": null,
+        "address": "Carnaby Centre, 16-20 Carnaby St, London, Uk W1F 9PS",
+        "phone_number": "+442077340823",
+        "website": "https://www.carnaby.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/CarnabyLondon/",
+            "twitter": "http://twitter.com/carnabylondon",
+            "instagram": "http://instagram.com/carnabylondon",
+            "youtube": "https://youtube.com/c/carnabylondon"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Lewisham Shopping",
+        "business_type": "· Shopping centre",
+        "business_about": "Lewisham Shopping Centre is a vibrant, bustling shopping centre home to more than 50 retailers including Sainsbury's, TK Maxx, BHS and …",
+        "business_link": "https://www.bing.com/maps?cp=51.461841%7E-0.012087&lvl=11.2",
+        "business_status": null,
+        "address": "Molesworth Street, London SE13 7HB",
+        "phone_number": "+442088520094",
+        "website": "https://lewishamshopping.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/lewishamshopping/",
+            "twitter": "https://twitter.com/lewishamcentre",
+            "instagram": "//instagram.com/lewisham_shopping_centre/?FORM=SNAPST"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "3.5/5",
+                "no_reviews": "(35)"
+            },
+            "Facebook": {
+                "ratings": "3.6/5",
+                "no_reviews": "(161)"
+            },
+            "Yelp": {
+                "ratings": "3.7/5",
+                "no_reviews": "15 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "07:00 - 20:00",
+            "Saturday": "07:00 - 20:00",
+            "Sunday": "10:30 - 17:00",
+            "Monday": "07:00 - 20:00",
+            "Tuesday": "07:00 - 20:00",
+            "Wednesday": "07:00 - 20:00",
+            "Thursday": "07:00 - 20:00"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "London Souvenirs",
+        "business_type": "Souvenir shop",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.505592%7E-0.083513&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "Hay's Galleria, Battle Bridge Lane, London SE1 2HD",
+        "phone_number": "+447463236733",
+        "website": "https://www.hays-galleria.com/",
+        "socials": {
+            "facebook": "https://www.facebook.com/souvenirshg/",
+            "instagram": "https://instagram.com/souvenirshg"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "11:00 - 17:00",
+            "Saturday": "11:00 - 17:00",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "11:00 - 17:00",
+            "Tuesday": "11:00 - 17:00",
+            "Wednesday": "11:00 - 17:00",
+            "Thursday": "11:00 - 17:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Kings Mall Shopping Centre",
+        "business_type": "Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.492471%7E-0.228121&lvl=11.2",
+        "business_status": null,
+        "address": "King Street, Hammersmith, London W6 9HW",
+        "phone_number": "+442087412121",
+        "website": "http://www.kings-mall.co.uk/",
+        "socials": {
+            "facebook": "https://facebook.com/livat.hammersmith",
+            "twitter": "https://twitter.com/kingsmalluk",
+            "instagram": "https://instagram.com/livat.hammersmith"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "2.6/5",
+                "no_reviews": "8 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "07:30 - 21:30",
+            "Saturday": "07:30 - 21:30",
+            "Sunday": "10:00 - 18:00",
+            "Monday": "07:30 - 21:30",
+            "Tuesday": "07:30 - 21:30",
+            "Wednesday": "07:30 - 21:30",
+            "Thursday": "07:30 - 21:30"
+        },
+        "active_status": "Opens in 17 mins"
+    },
+    {
+        "business_name": "W12 Shopping",
+        "business_type": "· Shopping centre",
+        "business_about": "West12 Shopping Centre is a vibrant, bustling and convenient retail destination in the heart of Shepherds Bush with a Vue Cinema.",
+        "business_link": "https://www.bing.com/maps?cp=51.503405%7E-0.219339&lvl=11.2",
+        "business_status": null,
+        "address": "Shepherd's Bush, London W12 8PP",
+        "phone_number": "+442087460038",
+        "website": "https://www.west12shopping.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/W12Shopping/",
+            "twitter": "https://twitter.com/west12shopping",
+            "instagram": "https://instagram.com/west12shoppingcentre"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "3.5/5",
+                "no_reviews": "(38)"
+            },
+            "Facebook": {
+                "ratings": "3.3/5",
+                "no_reviews": "(10)"
+            },
+            "Yelp": {
+                "ratings": "2.9/5",
+                "no_reviews": "10 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "07:00 - 23:30",
+            "Saturday": "07:00 - 23:30",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "07:00 - 23:30",
+            "Tuesday": "07:00 - 23:30",
+            "Wednesday": "07:00 - 23:30",
+            "Thursday": "07:00 - 23:30"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "Kingsland Shopping Centre",
+        "business_type": "· Shopping centre",
+        "business_about": "Kingsland Shopping Centre is a Shopping Centre located in London .",
+        "business_link": "https://www.bing.com/maps?cp=51.547844%7E-0.074145&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "372 Kingsland Road, London E8 2LX",
+        "phone_number": "+447807217734",
+        "website": "http://www.kingslandshopping.com/centre-information.htm",
+        "socials": {
+            "facebook": "https://www.facebook.com/KingslandShopping/",
+            "twitter": "https://twitter.com/dalstonshop"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "2.9/5",
+                "no_reviews": "10 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "08:00 - 22:00",
+            "Saturday": "08:00 - 22:00",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "08:00 - 22:00",
+            "Tuesday": "08:00 - 22:00",
+            "Wednesday": "08:00 - 22:00",
+            "Thursday": "08:00 - 22:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Kings Walk Shopping Mall",
+        "business_type": "Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.489919%7E-0.163135&lvl=11.2",
+        "business_status": null,
+        "address": "122 Kings Road, South Kensington SW3 4TR",
+        "phone_number": "+442078238448",
+        "website": "https://kingswalkchelsea.co.uk/",
+        "socials": {},
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:30 - 19:00",
+            "Saturday": "09:30 - 19:30",
+            "Sunday": "12:00 - 18:00",
+            "Monday": "09:30 - 19:00",
+            "Tuesday": "09:30 - 19:00",
+            "Wednesday": "09:30 - 19:00",
+            "Thursday": "09:30 - 19:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Duke Of York Square",
+        "business_type": "Shopping centre",
+        "business_about": "Duke of York Square, in the heart of Chelsea, offers the best curated selection of fashion, food, beauty and culture. On the King’s Road, claiming our …",
+        "business_link": "https://www.bing.com/maps?cp=51.491013%7E-0.158451&lvl=11.2",
+        "business_status": null,
+        "address": "80 Duke Of York Square, London SW3 4LY",
+        "phone_number": "+442078235577",
+        "website": "https://dukeofyorksquare.com/",
+        "socials": {
+            "facebook": "https://facebook.com/dukeofyorksquare",
+            "twitter": "https://twitter.com/doysq",
+            "instagram": "https://instagram.com/dukeofyorksquare"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "4.0/5",
+                "no_reviews": "4 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "10:00 - 19:00",
+            "Saturday": "10:00 - 18:00",
+            "Sunday": "00:00 - 18:00",
+            "Monday": "10:00 - 19:00",
+            "Tuesday": "10:00 - 19:00",
+            "Wednesday": "10:00 - 19:00",
+            "Thursday": "10:00 - 20:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Persepolis",
+        "business_type": "· Restaurant",
+        "business_about": "Quirky Persian corner shop with in-store vegetarian cafe/restaurant",
+        "business_link": "https://www.bing.com/maps?cp=51.473148%7E-0.071803&lvl=11.2",
+        "business_status": null,
+        "address": "28-30 Peckham High Street, London SE15 5DT",
+        "phone_number": "+442076398007",
+        "website": null,
+        "socials": {
+            "facebook": "https://facebook.com/profile.php",
+            "twitter": "https://twitter.com/persiainpeckham",
+            "instagram": "https://instagram.com/persepolis_peckham"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.5/5",
+                "no_reviews": "(152)"
+            },
+            "Facebook": {
+                "ratings": "4.3/5",
+                "no_reviews": "(340)"
+            },
+            "Ubereats": {
+                "ratings": "4.7/5",
+                "no_reviews": "351 reviews"
+            },
+            "Yelp": {
+                "ratings": "4.6/5",
+                "no_reviews": "22 reviews"
+            },
+            "Happycow": {
+                "ratings": "4.5/5",
+                "no_reviews": "27 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "01:00 - 00:00",
+            "Saturday": "Closed",
+            "Sunday": "Closed",
+            "Monday": "01:00 - 00:00",
+            "Tuesday": "01:00 - 00:00",
+            "Wednesday": "01:00 - 00:00",
+            "Thursday": "01:00 - 00:00"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "SKY Shopping City",
+        "business_type": "Shopping centre",
+        "business_about": "Welcome to Sky Shopping City, the ultimate destination for all your shopping needs! Located in the heart of Peckham, our shopping center is …",
+        "business_link": "https://www.bing.com/maps?cp=51.469501%7E-0.067705&lvl=11.2",
+        "business_status": null,
+        "address": "137-139 Rye Lane, London SE15 4ST",
+        "phone_number": "+442077322202",
+        "website": "https://skyshoppingcity.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/pages/category/shopping-mall/sky-shopping-city-1796141313999639"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:00 - 20:00",
+            "Saturday": "10:00 - 17:00",
+            "Sunday": "10:00 - 17:00",
+            "Monday": "09:00 - 20:00",
+            "Tuesday": "09:00 - 20:00",
+            "Wednesday": "09:00 - 20:00",
+            "Thursday": "09:00 - 20:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Inshops Centres",
+        "business_type": "Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.542018%7E0.001379&lvl=11.2",
+        "business_status": null,
+        "address": "70-73 The Mall, London E15 1XQ",
+        "phone_number": "+442085031531",
+        "website": null,
+        "socials": {},
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Smart Girls Choice",
+        "business_type": "Shopping centre",
+        "business_about": "Inside this company you will get everything in low price and in good quality. Because our point of view is that we sale QUALITY not QUANTITY. Our …",
+        "business_link": "https://www.bing.com/maps?cp=51.505956%7E-0.058923&lvl=11.2",
+        "business_status": null,
+        "address": "ST # 7, Ali Lane",
+        "phone_number": "+913464354279",
+        "website": "https://smartgirlschoice.company.site/",
+        "socials": {
+            "facebook": "https://facebook.com/girlschoiceonlinestore",
+            "instagram": "https://instagram.com/smart_girls_choice",
+            "youtube": "https://youtube.com/channel/UCIHUYom7tg5KfO1RlDxhqXg"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Designer Fashion Marketplace & Outlet by FatakaFashions.com",
+        "business_type": "Clothing store",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.48518%7E-0.024381&lvl=11.2",
+        "business_status": null,
+        "address": "Suite 27A, 23 Wharf St, Greenwich, London",
+        "phone_number": "",
+        "website": null,
+        "socials": {
+            "facebook": "https://facebook.com/fashiondesignersmarketplace",
+            "twitter": "https://twitter.com/fatakafashions",
+            "instagram": "https://instagram.com/fataka.fashions",
+            "linkedin": "https://linkedin.com/company/fataka-fashion-synergies-ltd-uk"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Vicarage Field Shopping Centre",
+        "business_type": "Shopping centre",
+        "business_about": "Welcome to Vicarage Field Shopping Centre, offering great shopping at the heart of Barking town cent",
+        "business_link": "https://www.bing.com/maps?cp=51.538013%7E0.081587&lvl=11.2",
+        "business_status": null,
+        "address": "Ripple Road, Barking IG11 8DQ",
+        "phone_number": "+442082707100",
+        "website": "https://www.facebook.com/vicaragefield/",
+        "socials": {
+            "facebook": "https://www.facebook.com/vicaragefield/"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "08:00 - 20:00",
+            "Saturday": "08:00 - 20:00",
+            "Sunday": "11:00 - 17:00",
+            "Monday": "08:00 - 20:00",
+            "Tuesday": "08:00 - 20:00",
+            "Wednesday": "08:00 - 20:00",
+            "Thursday": "08:00 - 20:00"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "PAUL Canary Wharf",
+        "business_type": "· £ · Shopping centre",
+        "business_about": "Paul are a chain of bakeries with over 250 outlets across France and over 30 shops outside France. The bakeries sell over 100 varieties of bread, …",
+        "business_link": "https://www.bing.com/maps?cp=51.505227%7E-0.020283&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "310 Cabot Place Canary Wharf, London E14 5AB",
+        "phone_number": "+442039785505",
+        "website": "https://canarywharf.com/",
+        "socials": {
+            "facebook": "https://www.facebook.com/daitaylor54/",
+            "twitter": "https://twitter.com/canarywharfgrp",
+            "instagram": "https://instagram.com/canarywharflondon",
+            "linkedin": "https://uk.linkedin.com/company/canary-wharf-group"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "07:00 - 20:30",
+            "Saturday": "07:00 - 20:30",
+            "Sunday": "07:00 - 18:00",
+            "Monday": "07:00 - 20:30",
+            "Tuesday": "07:00 - 20:30",
+            "Wednesday": "07:00 - 20:30",
+            "Thursday": "07:00 - 20:30"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "High Street Mall",
+        "business_type": "Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=-32.054522%7E115.746995&lvl=11.2",
+        "business_status": null,
+        "address": "High Street, Bromley BR1 1AH",
+        "phone_number": "",
+        "website": null,
+        "socials": {
+            "facebook": "https://facebook.com/160163347327495"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Tower Vaults",
+        "business_type": "Cafe",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.509236%7E-0.078243&lvl=11.2",
+        "business_status": null,
+        "address": "1-12 Tower Hill Terrace, London EC3N 4EE",
+        "phone_number": "+442077090081",
+        "website": null,
+        "socials": {},
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Amazon Locker at Lewisham Shopping Centre",
+        "business_type": "Shipping centre",
+        "business_about": "We take care of storing, picking, packing and shipping your products to customers along with 24/7 trusted customer service in the local languages of …",
+        "business_link": "https://www.bing.com/maps?cp=51.462571%7E-0.010916&lvl=11.2",
+        "business_status": null,
+        "address": "33A Molesworth Street, London SE13 7HB",
+        "phone_number": "+448004961081",
+        "website": "https://sellercentral.amazon.co.uk/",
+        "socials": {
+            "facebook": "https://facebook.com/sellonamazoneurope",
+            "instagram": "https://instagram.com/sellonamazoneurope",
+            "youtube": "https://youtube.com/user/amazonserviceseu"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Canary Wharf, Jubilee Place",
+        "business_type": "· Shopping centre",
+        "business_about": "Since 1971, Starbucks has been committed to ethically sourcing and roasting the highest quality arabica coffee in the world. Today, with stores …",
+        "business_link": "https://www.bing.com/maps?cp=51.503041%7E-0.018527&lvl=11.2",
+        "business_status": null,
+        "address": "45 Bank St, Canary Wharf E14 5NY",
+        "phone_number": "+443457404404",
+        "website": "https://www.starbucks.com/",
+        "socials": {
+            "facebook": "https://facebook.com/starbucks",
+            "twitter": "https://twitter.com/starbucks/",
+            "instagram": "https://instagram.com/starbucks",
+            "youtube": "https://www.youtube.com/starbucks"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Emmat Online Shopping Mall",
+        "business_type": "· Clothing store",
+        "business_about": "This is about EMMAT Online Shopping Mall:¶ABOUT US¶Its EMMAT mission to be the most favourite shopping destination for all online …",
+        "business_link": "https://www.bing.com/maps?cp=51.392849%7E-0.068291&lvl=11.2",
+        "business_status": null,
+        "address": "50 Denmark Road, London SE25 5RD",
+        "phone_number": "+447869693914",
+        "website": null,
+        "socials": {
+            "facebook": "https://www.facebook.com/Emmat-Online-Shopping-Mall-340167770010024/",
+            "twitter": "https://twitter.com/EmmatMall"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Lamanee Services",
+        "business_type": "Shopping centre",
+        "business_about": "",
+        "business_link": "https://www.bing.com/maps?cp=51.504134%7E0.018943&lvl=11.2",
+        "business_status": null,
+        "address": "Expressway Studios 1 Dock Road Royal Docks, North Woolwich E16 1AH",
+        "phone_number": "",
+        "website": null,
+        "socials": {},
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "Broadway Shopping Centre Bexleyheath",
+        "business_type": "· Shopping centre",
+        "business_about": "Broadway Shopping Centre, , is the principal covered shopping centre in the town centre of Bexleyheath and is the largest single covered shopping …",
+        "business_link": "https://www.bing.com/maps?cp=51.45564%7E0.146572&lvl=11.2",
+        "business_status": null,
+        "address": "Albion Road, Bexleyheath DA6 7JN",
+        "phone_number": "+442083012956",
+        "website": "https://www.broadwayshoppingcentre.com/",
+        "socials": {
+            "facebook": "https://www.facebook.com/broadwayshopping/",
+            "twitter": "https://twitter.com/broadwaybexley",
+            "instagram": "https://instagram.com/broadwaybexleyheath"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.0/5",
+                "no_reviews": "(39)"
+            },
+            "Facebook": {
+                "ratings": "4.0/5",
+                "no_reviews": "(314)"
+            },
+            "Yelp": {
+                "ratings": "3.8/5",
+                "no_reviews": "4 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "09:00 - 17:30",
+            "Saturday": "09:00 - 18:00",
+            "Sunday": "10:00 - 16:00",
+            "Monday": "09:00 - 17:30",
+            "Tuesday": "09:00 - 17:30",
+            "Wednesday": "09:00 - 17:30",
+            "Thursday": "09:00 - 17:30"
+        },
+        "active_status": "Closed"
+    },
+    {
+        "business_name": "Amazing Reviews",
+        "business_type": "E commerce service",
+        "business_about": "We provide comprehensive product reviews and compare prices of the top product brands and models on the internet. Online Reviews Statistics and Trends transforming the way consumers choose products.",
+        "business_link": "https://www.bing.com/maps?cp=51.504134%7E-0.019112&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "1 Canada Square, 37Th Floor, London E14 9XQ",
+        "phone_number": "+442080583340",
+        "website": "https://amazingreviews.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/amazonexpertsuk",
+            "twitter": "https://twitter.com/AmazingaReviews",
+            "instagram": "https://instagram.com/amazingreviewsuk",
+            "linkedin": "https://linkedin.com/company/amazing-reviews-ltd",
+            "youtube": "https://www.youtube.com/channel/UCefMl7h0VeI5fvK4l2u-Ljw"
+        },
+        "review_ratings": {},
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {},
+        "active_status": null
+    },
+    {
+        "business_name": "West One",
+        "business_type": "· Shopping centre",
+        "business_about": "West One Shopping is the leading London shopping & retail destination. Come & explore the best selection of popular shops, cafes and restaurants in …",
+        "business_link": "https://www.bing.com/maps?cp=51.513972%7E-0.149084&lvl=11.2",
+        "business_status": "This business has been claimed by the business owner or a representative.",
+        "address": "75 Davies Street, London W1K 5JN",
+        "phone_number": "+442074934820",
+        "website": "https://west1shopping.co.uk/",
+        "socials": {
+            "facebook": "https://www.facebook.com/westoneshopping/",
+            "twitter": "https://twitter.com/westoneshopping",
+            "instagram": "https://instagram.com/westoneshopping"
+        },
+        "review_ratings": {
+            "Yelp": {
+                "ratings": "2.0/5",
+                "no_reviews": "1 review"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "06:30 - 22:00",
+            "Saturday": "08:00 - 22:00",
+            "Sunday": "10:00 - 21:00",
+            "Monday": "06:30 - 22:00",
+            "Tuesday": "06:30 - 22:00",
+            "Wednesday": "06:30 - 22:00",
+            "Thursday": "06:30 - 22:00"
+        },
+        "active_status": "Open"
+    },
+    {
+        "business_name": "BOXPARK",
+        "business_type": "· Fast Food, Coffee Shop ·",
+        "business_about": "BOXPARK Shoreditch fuses modern street food & pop-up shops to deliver a community of independent brands specialising in fashion, arts, food & …",
+        "business_link": "https://www.bing.com/maps?cp=51.523444%7E-0.075902&lvl=11.2",
+        "business_status": null,
+        "address": "10 Bethnal Green Road, London E1 6GY",
+        "phone_number": "+442070332899",
+        "website": "https://boxpark.co.uk/shoreditch/",
+        "socials": {
+            "facebook": "https://www.facebook.com/boxparkshoreditch/",
+            "twitter": "https://twitter.com/boxpark",
+            "instagram": "https://instagram.com/boxpark",
+            "youtube": "https://youtube.com/user/boxparkshoreditch"
+        },
+        "review_ratings": {
+            "Tripadvisor": {
+                "ratings": "4.0/5",
+                "no_reviews": "(671)"
+            },
+            "Facebook": {
+                "ratings": "4.0/5",
+                "no_reviews": "(4,547)"
+            },
+            "Yelp": {
+                "ratings": "4.3/5",
+                "no_reviews": "4 reviews"
+            }
+        },
+        "total_ratings": 5,
+        "source": "Bing Maps",
+        "search_term": "shopping malls in London",
+        "business_hours": {
+            "Friday": "11:00 - 23:45",
+            "Saturday": "11:00 - 23:45",
+            "Sunday": "11:00 - 22:30",
+            "Monday": "11:00 - 23:00",
+            "Tuesday": "11:00 - 23:00",
+            "Wednesday": "11:00 - 23:00",
+            "Thursday": "11:00 - 23:00"
+        },
+        "active_status": "Closed"
+    }
+]
