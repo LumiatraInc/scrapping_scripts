@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "bingmaps.pipelines.BingmapsPipeline": 300,
+   "bingmaps.pipelines.JsonWriterPipeline": 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
