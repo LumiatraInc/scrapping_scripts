@@ -24,7 +24,6 @@ class BingmapSpider(scrapy.Spider):
         self.search_term = "shopping malls in London"
 
     def parse(self, response: Response):
-        # self.driver.maximize_window()
         self.driver.get(response.url)
         WebDriverWait(self.driver, 180).until(
             lambda driver: driver.execute_script(
@@ -42,51 +41,32 @@ class BingmapSpider(scrapy.Spider):
 
         result_box = self.driver.find_element(By.CSS_SELECTOR, "div#taskArea div.taskLayoutContainer.slideout div.bm_scrollbarMask div.custom-scroll.sticky div.outer-container div.inner-container")
 
-        page_count = 1
-
         # go to next page until there is no more page to go to
         while True:
             try:
                 time.sleep(5)
                 selector = Selector(text=self.driver.page_source)
 
-                businesses_div = selector.css("div.entity-listing-container div.b_rich ul.b_vList.b_divsec li a")
-                businesses_div = self.driver.find_elements(By.CSS_SELECTOR, "div.entity-listing-container div.b_rich ul.b_vList.b_divsec li a")
+                businesses_div = self.driver.find_elements(By.CSS_SELECTOR, "div.entity-listing-container div.b_rich a.listings-item")
 
 
-                print(f" We have {len(businesses_div)} businesses")
+                if businesses_div:
+                    print(f" We have {len(businesses_div)} businesses")
+                    for business in businesses_div:
+                        yield self.parse_business(business)
+                        # close the business card
+                        self.close_business_card()
+                        WebDriverWait(self.driver, 10).until(
+                                lambda driver: driver.execute_script(
+                                    "return document.readyState") == "complete"
+                        )
 
+                        time.sleep(4)
+                        # input("==================> Press to continue")
 
-                for business in businesses_div:
-                    yield self.parse_business(business)
-                    # close the business card
-                    close_business_card_btn = self.driver.find_element(By.CSS_SELECTOR, "div.taskCard.focus div.cardFace.front div.cardContent div.contentRoot div a.commonButton.backArrowButton.overlayButton")
-                    close_business_card_btn.click()
-                    # self.driver.back()
-                    WebDriverWait(self.driver, 10).until(
-                            lambda driver: driver.execute_script(
-                                "return document.readyState") == "complete"
-                    )
+                    time.sleep(2)
 
-                    time.sleep(4)
-                    # input("==================> Press to continue")
-
-                time.sleep(2)
-
-                next_btn = self.driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Page']")
-                print(f"next_btn {next_btn}")
-                if next_btn.is_displayed() and next_btn.is_enabled():
-                    next_btn.click()
-                    WebDriverWait(self.driver, 10).until(
-                        lambda driver: driver.execute_script(
-                            "return document.readyState") == "complete"
-                    )
-
-                    page_count +=1
-
-                else:
-                    print("==========> Button is either not enabled or visible")
-                    break
+                self.go_to_next_page()
 
             except NoSuchElementException as ne:
                 print(f"========= An exception was thrown {ne}")
@@ -105,7 +85,29 @@ class BingmapSpider(scrapy.Spider):
 
     def open_business_as_new_card(self):
         raise NotImplemented()
+    
+    def close_business_card(self) -> None:
+        close_business_card_btn = self.driver.find_element(By.CSS_SELECTOR, "div.taskCard.focus div.bm_cardClose.collage a[aria-label='Close']")
+        return_to_list_btn = self.driver.find_element(By.CSS_SELECTOR, "div.taskCard.focus div.contentRoot a.commonButton.backArrowButton")
 
+        if close_business_card_btn.is_displayed() and close_business_card_btn.is_enabled():
+            close_business_card_btn.click()
+        elif return_to_list_btn.is_displayed() and return_to_list_btn.is_enabled():
+            return_to_list_btn.click()
+
+    def go_to_next_page(self):
+        next_btn = self.driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Page']")
+        print(f"next_btn {next_btn}")
+        if next_btn.is_displayed() and next_btn.is_enabled():
+            next_btn.click()
+            WebDriverWait(self.driver, 10).until(
+                lambda driver: driver.execute_script(
+                    "return document.readyState") == "complete"
+            )
+
+        else:
+            print("==========> Button is either not enabled or visible")
+            raise Exception("End of page")
 
     def parse_business(self, business: WebElement) -> BingmapsItem:
         new_business = BingmapsItem()
