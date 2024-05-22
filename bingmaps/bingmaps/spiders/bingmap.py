@@ -21,7 +21,7 @@ class BingmapSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         self.driver = webdriver.Chrome()
-        self.search_term = "shopping malls in London"
+        self.search_term = "shops in London"
 
     def parse(self, response: Response):
         self.driver.get(response.url)
@@ -119,7 +119,7 @@ class BingmapSpider(scrapy.Spider):
         website: str = None
         business_status: str = None
         review_ratings: str = None
-        total_reviews: str = None
+        business_photos: list[str] = []
         business_about: str = None
         search_term = self.search_term
         source = "Bing Maps"
@@ -138,15 +138,14 @@ class BingmapSpider(scrapy.Spider):
 
                 selector = Selector(text=self.driver.page_source)
 
-                business_info_box = selector.css("div#wpc_tp.wpc_tp div.tp_tasks div.wpc_module.sb_meta div.compInfo.b_localDesktopInfoCard")
+                business_info_box = selector.css("div.compInfo")
 
                 print(f"business info box {business_info_box}")
 
+                infos = {}
                 if business_info_box:
                     infos = self.parse_business_info(business_info_box)
-                elif business_info_box := selector.css("div.b_subModule > div.compInfo.b_wfInfoCard.b_bizent"):
-                    infos = self.parse_business_info(business_info_box)
-
+            
                 if infos:
                     business_name = infos.get("business_name")
                     business_about = infos.get("business_about")
@@ -157,6 +156,7 @@ class BingmapSpider(scrapy.Spider):
                     phone_number = infos.get("phone_number")
                     business_hours = infos.get("business_hours")
                     active_status = infos.get("active_status")
+                    business_photos = infos.get("business_photos")
                     
 
 
@@ -182,6 +182,7 @@ class BingmapSpider(scrapy.Spider):
             new_business["search_term"] = search_term
             new_business["business_hours"] = business_hours
             new_business["active_status"] = active_status
+            new_business["business_photos"] = business_photos
 
         except NoSuchElementException as ne:
                 print(f"Parse Business ========= An exception was thrown {ne}")
@@ -197,7 +198,7 @@ class BingmapSpider(scrapy.Spider):
 
         return new_business
     
-    def parse_business_info(self, elements: SelectorList[Selector]) -> dict[str, (str | None)]:
+    def parse_business_info(self, elements: SelectorList[Selector]) -> dict[str, (str | None | list | dict)]:
         print("step 1")
         business_name = self.get_business_name(elements)
 
@@ -222,12 +223,16 @@ class BingmapSpider(scrapy.Spider):
         print("step 8")
         business_hours = self.get_business_hours(elements)
 
-        active_status = business_hours.pop("active_status", None)
+        print("step 9")
+        business_photos = self.get_business_photos()
+
+        active_status: str = business_hours.pop("active_status", None)
 
         return {
             "business_name": business_name,
             "business_about": business_about,
             "business_type": business_type,
+            "business_photos": business_photos,
             "business_status": business_status,
             "address": address,
             "phone_number": phone_number,
@@ -348,6 +353,21 @@ class BingmapSpider(scrapy.Spider):
                 
 
         return business_hours
+
+    def get_business_photos(self) -> list:
+        business_photos = []
+        selector = Selector(text=self.driver.page_source)
+        time.sleep(2)
+        all_images_el = selector.css("div.b_entityTP div.irp > div.irpu img")
+        if not all_images_el:
+            all_images_el = selector.css("div.b_entityTP a > img")
+        print(f"================> all_image_el {all_images_el}")
+        for image_el in all_images_el:
+            image = image_el.css("::attr(src)").get()
+            print(f"image {image}")
+            business_photos.append(image)
+        
+        return business_photos
             
     def get_active_status(self, elements) -> (str | None):
         active_status_el = elements.css("span[title='See more hours'] > span::text")
