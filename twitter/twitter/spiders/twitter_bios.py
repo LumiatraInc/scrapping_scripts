@@ -16,10 +16,13 @@ from twitter.items import TwitterItem
 class TwitterBiosSpider(scrapy.Spider):
     name = "twitter_bios"
     allowed_domains = ["twitter.com", "x.com"]
-    start_urls = ["https://twitter.com/tommyhilfiger"]
+    start_urls = ["https://twitter.com/SimplyCaleno"]
 
     def __init__(self, *args, **kwargs):
         self.driver = webdriver.Chrome()
+        self.login_mail = "jaribwetshi7@gmail.com"
+        self.login_username = "Jay349086050367"
+        self.login_password = "GazelleTu"
 
     def parse(self, response):
         self.driver.get(response.url)
@@ -27,7 +30,10 @@ class TwitterBiosSpider(scrapy.Spider):
             lambda driver: driver.execute_script(
                 "return document.readyState") == "complete"
         )
-        time.sleep(5)
+        time.sleep(20)
+
+        if "redirect_after_login" in self.driver.current_url:
+            self.login_to_twitter()
 
         twitter_profile = TwitterItem()
         profile_photo: str  = None
@@ -54,7 +60,50 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["cover_photo"] = cover_photo
         yield twitter_profile
 
-        time.sleep(5)
+        time.sleep(10)
         self.driver.close()
+
+
+    def login_to_twitter(self):
+        try:
+            email_input_el = self.driver.find_element(By.CSS_SELECTOR, "input[autocomplete='username']")
+            email_input_el.send_keys(self.login_mail)
+            time.sleep(2)
+            next_btn_el = self.driver.find_element(By.XPATH, "//button[descendant::text()='Next']")
+            next_btn_el.click()
+            WebDriverWait(self.driver, 180).until(
+            lambda driver: driver.execute_script(
+                "return document.readyState") == "complete"
+            )
+            time.sleep(10)
+
+            if username_el:= self.driver.find_elements(By.CSS_SELECTOR, "input[data-testid='ocfEnterTextTextInput']"):
+                username_el[0].send_keys(self.login_username)
+                time.sleep(2)
+                next_btn_el = self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='ocfEnterTextNextButton']")
+                next_btn_el.click()
+                WebDriverWait(self.driver, 180).until(
+                lambda driver: driver.execute_script(
+                    "return document.readyState") == "complete"
+                )
+                time.sleep(10)
+
+
+            password_input_el = self.driver.find_element(By.CSS_SELECTOR, "input[type='password']")
+            password_input_el.send_keys(self.login_password)
+            time.sleep(2)
+            if next_btn_el:= self.driver.find_elements(By.CSS_SELECTOR, "button[data-testid='LoginForm_Login_Button']"):
+                next_btn_el[0].click()
+            else:
+                next_btn_el = self.driver.find_element(By.XPATH, "//button[descendant::text()='Next']")
+                next_btn_el.click()
+            WebDriverWait(self.driver, 180).until(
+            lambda driver: driver.execute_script(
+                "return document.readyState") == "complete"
+            )
+            time.sleep(15)
+
+        except Exception as e:
+            print(f"=============> login_to_twitter error {e}")
 
 
