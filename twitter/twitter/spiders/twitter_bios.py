@@ -63,13 +63,19 @@ class TwitterBiosSpider(scrapy.Spider):
         if profile_photo_el:
             profile_photo = profile_photo_el.css("::attr(style)").get()
 
-
         is_verified_el = selector.css("button[aria-label='Provides details about verified accounts.']")
         if is_verified_el:
             is_verified = True
         else:
             is_verified = False
 
+        following_el = selector.css("a[href*='following'] > span > span")
+        if following_el:
+            total_following = following_el.css("::text").get()
+
+        followers_el = selector.css("a[href*='followers'] > span > span")
+        if followers_el:
+            total_followers = followers_el.css("::text").get()
 
         username_el = selector.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3")
         if username_el:
@@ -87,6 +93,9 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["profile_photo"] = profile_photo
         twitter_profile["cover_photo"] = cover_photo
         twitter_profile["is_verified"] = is_verified
+        twitter_profile["total_following"] = total_following
+        twitter_profile["total_followers"] = total_followers
+        
         yield twitter_profile
 
         time.sleep(10)
