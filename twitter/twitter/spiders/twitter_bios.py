@@ -37,8 +37,17 @@ class TwitterBiosSpider(scrapy.Spider):
 
         twitter_profile = TwitterItem()
         profile_photo: str  = None
+        profile_name: str = None
         cover_photo: str = None
         profile_description: str = None
+        profile_hashtag: str = None
+        is_verified: bool = None
+        company_type: str = None
+        web_link: str = None
+        date_joined: str = None
+        total_followers: str = None
+        total_following: str = None
+        total_posts: str = None
 
         selector = Selector(text=self.driver.page_source)
 
@@ -54,10 +63,30 @@ class TwitterBiosSpider(scrapy.Spider):
         if profile_photo_el:
             profile_photo = profile_photo_el.css("::attr(style)").get()
 
-            
+
+        is_verified_el = selector.css("button[aria-label='Provides details about verified accounts.']")
+        if is_verified_el:
+            is_verified = True
+        else:
+            is_verified = False
+
+
+        username_el = selector.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3")
+        if username_el:
+            username_texts = username_el.css("::text").getall()
+            for username in username_texts:
+                if username.startswith("@"):
+                    profile_hashtag = username
+                else:
+                    profile_name = username
+
+
+        twitter_profile["profile_name"] = profile_name
+        twitter_profile["profile_hashtag"] = profile_hashtag
         twitter_profile["profile_description"] = profile_description
         twitter_profile["profile_photo"] = profile_photo
         twitter_profile["cover_photo"] = cover_photo
+        twitter_profile["is_verified"] = is_verified
         yield twitter_profile
 
         time.sleep(10)
