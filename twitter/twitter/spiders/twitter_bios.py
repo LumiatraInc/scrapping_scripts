@@ -16,7 +16,7 @@ from twitter.items import TwitterItem
 class TwitterBiosSpider(scrapy.Spider):
     name = "twitter_bios"
     allowed_domains = ["twitter.com", "x.com"]
-    start_urls = ["https://twitter.com/SimplyCaleno"]
+    start_urls = ["https://x.com/tommyhilfiger"]
 
     def __init__(self, *args, **kwargs):
         self.driver = webdriver.Chrome()
@@ -52,34 +52,28 @@ class TwitterBiosSpider(scrapy.Spider):
 
         selector = Selector(text=self.driver.page_source)
 
-        profile_description_el = selector.css("div[data-testid='UserDescription'] > span")
-        if profile_description_el:
+    
+        if profile_description_el:= selector.css("div[data-testid='UserDescription'] > span"):
             profile_description = profile_description_el.css("::text").get()
 
-        cover_photo_el = selector.css("div > div[style*='profile_banners']")
-        if cover_photo_el:
+        if cover_photo_el:= selector.css("div > div[style*='profile_banners']"):
             cover_photo = cover_photo_el.css("::attr(style)").get()
 
-        profile_photo_el = selector.css("div[aria-label='Opens profile photo'] > div[style*='profile_images']")
-        if profile_photo_el:
+        if profile_photo_el:= selector.css("div[aria-label='Opens profile photo'] > div[style*='profile_images']"):
             profile_photo = profile_photo_el.css("::attr(style)").get()
 
-        is_verified_el = selector.css("button[aria-label='Provides details about verified accounts.']")
-        if is_verified_el:
+        if selector.css("button[aria-label='Provides details about verified accounts.']"):
             is_verified = True
         else:
             is_verified = False
 
-        following_el = selector.css("a[href*='following'] > span > span")
-        if following_el:
+        if following_el:= selector.css("a[href*='following'] > span > span"):
             total_following = following_el.css("::text").get()
 
-        followers_el = selector.css("a[href*='followers'] > span > span")
-        if followers_el:
+        if followers_el:= selector.css("a[href*='followers'] > span > span"):
             total_followers = followers_el.css("::text").get()
 
-        username_el = selector.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3")
-        if username_el:
+        if username_el:=selector.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3"):
             username_texts = username_el.css("::text").getall()
             for username in username_texts:
                 if username.startswith("@"):
@@ -87,13 +81,17 @@ class TwitterBiosSpider(scrapy.Spider):
                 else:
                     profile_name = username
 
-        company_type_el = selector.css("span[data-testid='UserProfessionalCategory'] button > span")
-        if company_type_el:
+        if company_type_el:= selector.css("span[data-testid='UserProfessionalCategory'] button > span"):
             company_type = company_type_el.css("::text").get()
 
-        user_location_el = selector.css("span[data-testid='UserLocation'] span > span")
-        if user_location_el:
+        if user_location_el:= selector.css("span[data-testid='UserLocation'] span > span"):
             user_location = user_location_el.css("::text").get()
+
+        
+        if user_url_el := selector.css("a[data-testid='UserUrl'] > span"):
+            web_link = user_url_el.css("::text").get()
+
+
 
 
         twitter_profile["profile_name"] = profile_name
@@ -106,6 +104,7 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["total_followers"] = total_followers
         twitter_profile["company_type"] = company_type
         twitter_profile["user_location"] = user_location
+        twitter_profile["web_link"] = web_link
         
         yield twitter_profile
 
