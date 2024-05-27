@@ -19,5 +19,6 @@ class TwitterItem(scrapy.Item):
     total_followers = scrapy.Field()
     total_following = scrapy.Field()
     total_posts = scrapy.Field()
+    user_location = scrapy.Field()
 
     
