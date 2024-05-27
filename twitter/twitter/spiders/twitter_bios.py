@@ -95,6 +95,10 @@ class TwitterBiosSpider(scrapy.Spider):
         if user_join_date_el := selector.css("span[data-testid='UserJoinDate'] > span"):
             date_joined = user_join_date_el.css("::text").get()
 
+        
+        if total_post_el := selector.xpath("//h2/following-sibling::div"):
+            total_posts = total_post_el.css("::text").get()
+
 
         twitter_profile["profile_name"] = profile_name
         twitter_profile["profile_hashtag"] = profile_hashtag
@@ -108,6 +112,7 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["user_location"] = user_location
         twitter_profile["web_link"] = web_link
         twitter_profile["date_joined"] = date_joined
+        twitter_profile["total_posts"] = total_posts
         
         yield twitter_profile
 
