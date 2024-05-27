@@ -92,6 +92,8 @@ class TwitterBiosSpider(scrapy.Spider):
             web_link = user_url_el.css("::text").get()
 
 
+        if user_join_date_el := selector.css("span[data-testid='UserJoinDate'] > span"):
+            date_joined = user_join_date_el.css("::text").get()
 
 
         twitter_profile["profile_name"] = profile_name
@@ -105,6 +107,7 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["company_type"] = company_type
         twitter_profile["user_location"] = user_location
         twitter_profile["web_link"] = web_link
+        twitter_profile["date_joined"] = date_joined
         
         yield twitter_profile
 
