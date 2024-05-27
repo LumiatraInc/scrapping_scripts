@@ -48,6 +48,7 @@ class TwitterBiosSpider(scrapy.Spider):
         total_followers: str = None
         total_following: str = None
         total_posts: str = None
+        user_location: str = None
 
         selector = Selector(text=self.driver.page_source)
 
@@ -86,6 +87,14 @@ class TwitterBiosSpider(scrapy.Spider):
                 else:
                     profile_name = username
 
+        company_type_el = selector.css("span[data-testid='UserProfessionalCategory'] button > span")
+        if company_type_el:
+            company_type = company_type_el.css("::text").get()
+
+        user_location_el = selector.css("span[data-testid='UserLocation'] span > span")
+        if user_location_el:
+            user_location = user_location_el.css("::text").get()
+
 
         twitter_profile["profile_name"] = profile_name
         twitter_profile["profile_hashtag"] = profile_hashtag
@@ -95,6 +104,8 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["is_verified"] = is_verified
         twitter_profile["total_following"] = total_following
         twitter_profile["total_followers"] = total_followers
+        twitter_profile["company_type"] = company_type
+        twitter_profile["user_location"] = user_location
         
         yield twitter_profile
 
