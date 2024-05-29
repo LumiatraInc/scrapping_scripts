@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
@@ -16,10 +17,13 @@ from twitter.items import TwitterItem
 class TwitterBiosSpider(scrapy.Spider):
     name = "twitter_bios"
     allowed_domains = ["twitter.com", "x.com"]
-    start_urls = ["https://x.com/tommyhilfiger"]
+    start_urls = ["https://twitter.com/harrypotterny", "https://twitter.com/SimplyCaleno"]
 
     def __init__(self, *args, **kwargs):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("--headless")  # prevent the browser from opening
+        self.driver = webdriver.Chrome(options=options)
+
         self.login_mail = "jaribwetshi7@gmail.com"
         self.login_username = "Jay349086050367"
         self.login_password = "GazelleTu"
@@ -113,6 +117,7 @@ class TwitterBiosSpider(scrapy.Spider):
         twitter_profile["web_link"] = web_link
         twitter_profile["date_joined"] = date_joined
         twitter_profile["total_posts"] = total_posts
+        twitter_profile["search_term"] = "Twitter"
         
         yield twitter_profile
 
