@@ -9,6 +9,7 @@ import scrapy
 class TwitterItem(scrapy.Item):
     profile_name = scrapy.Field()
     profile_photo = scrapy.Field()
+    search_term = scrapy.Field()
     cover_photo = scrapy.Field()
     profile_hashtag = scrapy.Field()
     is_verified = scrapy.Field()
