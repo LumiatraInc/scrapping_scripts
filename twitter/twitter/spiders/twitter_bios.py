@@ -17,7 +17,7 @@ from twitter.items import TwitterItem
 class TwitterBiosSpider(scrapy.Spider):
     name = "twitter_bios"
     allowed_domains = ["twitter.com", "x.com"]
-    start_urls = ["https://twitter.com/harrypotterny", "https://twitter.com/SimplyCaleno"]
+    start_urls = ["https://twitter.com/harrypotterny"]
 
     def __init__(self, *args, **kwargs):
         options = Options()
@@ -56,54 +56,33 @@ class TwitterBiosSpider(scrapy.Spider):
 
         selector = Selector(text=self.driver.page_source)
 
+        profile_description = self.get_profile_description(selector)
+
+        cover_photo = self.get_cover_photo(selector)
+
+        profile_photo = self.get_profile_photo(selector)
+
+        is_verified = self.get_business_verification(selector)
+
+        total_following = self.get_total_following(selector)
+
+        total_followers = self.get_total_followers(selector)
+
+        profile_info = self.get_profile_information(selector)
+        profile_hashtag = profile_info.get("profile_hashtag")
+        profile_name = profile_info.get("profile_name")
+
+        company_type = self.get_company_type(selector)
+        
+        user_location = self.get_user_location(selector)
+        
+        web_link = self.get_web_link(selector)
+
+        date_joined = self.get_date_joined(selector)
+        
+        total_posts = self.get_total_posts(selector)
+        
     
-        if profile_description_el:= selector.css("div[data-testid='UserDescription'] > span"):
-            profile_description = profile_description_el.css("::text").get()
-
-        if cover_photo_el:= selector.css("div > div[style*='profile_banners']"):
-            cover_photo = cover_photo_el.css("::attr(style)").get()
-
-        if profile_photo_el:= selector.css("div[aria-label='Opens profile photo'] > div[style*='profile_images']"):
-            profile_photo = profile_photo_el.css("::attr(style)").get()
-
-        if selector.css("button[aria-label='Provides details about verified accounts.']"):
-            is_verified = True
-        else:
-            is_verified = False
-
-        if following_el:= selector.css("a[href*='following'] > span > span"):
-            total_following = following_el.css("::text").get()
-
-        if followers_el:= selector.css("a[href*='followers'] > span > span"):
-            total_followers = followers_el.css("::text").get()
-
-        if username_el:=selector.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3"):
-            username_texts = username_el.css("::text").getall()
-            for username in username_texts:
-                if username.startswith("@"):
-                    profile_hashtag = username
-                else:
-                    profile_name = username
-
-        if company_type_el:= selector.css("span[data-testid='UserProfessionalCategory'] button > span"):
-            company_type = company_type_el.css("::text").get()
-
-        if user_location_el:= selector.css("span[data-testid='UserLocation'] span > span"):
-            user_location = user_location_el.css("::text").get()
-
-        
-        if user_url_el := selector.css("a[data-testid='UserUrl'] > span"):
-            web_link = user_url_el.css("::text").get()
-
-
-        if user_join_date_el := selector.css("span[data-testid='UserJoinDate'] > span"):
-            date_joined = user_join_date_el.css("::text").get()
-
-        
-        if total_post_el := selector.xpath("//h2/following-sibling::div"):
-            total_posts = total_post_el.css("::text").get()
-
-
         twitter_profile["profile_name"] = profile_name
         twitter_profile["profile_hashtag"] = profile_hashtag
         twitter_profile["profile_description"] = profile_description
@@ -167,4 +146,82 @@ class TwitterBiosSpider(scrapy.Spider):
         except Exception as e:
             print(f"=============> login_to_twitter error {e}")
 
+
+    def get_profile_description(self, element: Selector) -> (str | None):
+        if profile_description_el:= element.css("div[data-testid='UserDescription'] > span"):
+            return profile_description_el.css("::text").get()
+        
+        return None
+
+    def get_cover_photo(self, element: Selector) -> (str | None):
+        if cover_photo_el:= element.css("div > div[style*='profile_banners']"):
+            return cover_photo_el.css("::attr(style)").get()
+        
+        return None
+
+    def get_profile_photo(self, element: Selector) -> (str | None):
+        if profile_photo_el:= element.css("div[aria-label='Opens profile photo'] > div[style*='profile_images']"):
+            return profile_photo_el.css("::attr(style)").get()
+        
+        return None
+    
+    def get_business_verification(self, element: Selector) -> bool:
+        if element.css("button[aria-label='Provides details about verified accounts.']"):
+            return True
+        else:
+            return False
+        
+    def get_total_following(self, element: Selector) -> (str | None):
+        if following_el:= element.css("a[href*='following'] > span > span"):
+            return following_el.css("::text").get()
+        
+        return None
+    
+    def get_total_followers(self, element: Selector) -> (str | None):
+        if followers_el:= element.css("a[href*='followers'] > span > span"):
+            return followers_el.css("::text").get()
+        
+        return None
+    
+    def get_profile_information(self, element: Selector) -> dict[str, str]:
+        profile_info = {}
+        if username_el:=element.css("div[data-testid='UserName'] span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3"):
+            username_texts = username_el.css("::text").getall()
+            for username in username_texts:
+                if username.startswith("@"):
+                    profile_info["profile_hashtag"] = username
+                else:
+                    profile_info["profile_name"] = username
+
+        return profile_info
+    
+    def get_company_type(self, element: Selector) -> (str | None):
+        if company_type_el:= element.css("span[data-testid='UserProfessionalCategory'] button > span"):
+            return company_type_el.css("::text").get()
+        
+        return None
+
+    def get_user_location(self, element: Selector) -> (str | None):
+        if user_location_el:= element.css("span[data-testid='UserLocation'] span > span"):
+            return user_location_el.css("::text").get()
+        
+        return None
+    
+    def get_web_link(self, element: Selector) -> (str | None):
+        if user_url_el := element.css("a[data-testid='UserUrl'] > span"):
+            return user_url_el.css("::text").get()
+        
+        return None
+    
+    def get_date_joined(self, element: Selector) -> (str | None):
+        if user_join_date_el := element.css("span[data-testid='UserJoinDate'] > span"):
+            return user_join_date_el.css("::text").get()
+        
+        return None
+    
+    def get_total_posts(self, element: Selector) -> (str | None):
+        if total_post_el := element.xpath("//h2/following-sibling::div"):
+            return total_post_el.css("::text").get()
+        
+        return None
 
