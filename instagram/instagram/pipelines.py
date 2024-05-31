@@ -10,7 +10,7 @@ class InstagramPipeline:
 class JsonWriterPipeline:
     def open_spider(self, spider):
         filename = "instagram_profile.json"
-        self.file = open(filename, 'w')
+        self.file = open(filename, 'w', encoding='utf-8')
         self.file.write("[")
 
     def process_item(self, item, spider):

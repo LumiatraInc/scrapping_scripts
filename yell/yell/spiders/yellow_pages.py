@@ -24,3 +24,30 @@ class YellowPagesSpider(scrapy.Spider):
             lambda driver: driver.execute_script(
                 "return document.readyState") == "complete"
         )
+
+        time.sleep(5)
+
+        search_links = self.driver.find_elements(By.CSS_SELECTOR, "ul.findLinks li div.findLinks--item a")
+
+        for search_link in search_links:
+            search = search_link.inner_text()
+            link_value = search_link.get_attribute("href")
+            if link_value:
+                link = f"https://yell.com{link_value}"
+
+            # click on link
+            search_link.click()
+
+            WebDriverWait(self.driver, 180).until(
+            lambda driver: driver.execute_script(
+                "return document.readyState") == "complete"
+            )
+
+            time.sleep(10)
+
+            self.driver.back()
+
+
+        self.driver.close()
+
+
