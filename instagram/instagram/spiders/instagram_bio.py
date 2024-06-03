@@ -28,27 +28,31 @@ class InstagramBioSpider(scrapy.Spider):
         self.driver = webdriver.Chrome()
         self.GEMINI_API_KEY = config("GEMINI_API_KEY", cast=str)
         print(f"{self.GEMINI_API_KEY=}")
+        self.all_urls = ["https://www.instagram.com/tommyhilfiger/", "https://instagram.com/burberry", "https://instagram.com/harrypotterny"]
 
     def parse(self, response):
-        self.driver.get(response.url)
-        WebDriverWait(self.driver, 180).until(
-            lambda driver: driver.execute_script(
-                "return document.readyState") == "complete"
-        )
-        time.sleep(20)
+        for url in self.all_urls:
+            self.driver.get(url)
+            WebDriverWait(self.driver, 180).until(
+                lambda driver: driver.execute_script(
+                    "return document.readyState") == "complete"
+            )
+            time.sleep(20)
 
-        selector = Selector(text=self.driver.page_source)
+            selector = Selector(text=self.driver.page_source)
 
-        use_ai = False
+            use_ai = False
 
-        if use_ai == False:
-            instagram_profile = self.get_instagram_business_data(selector)
-        else:
-            instagram_profile = self.ai_get_instagram_business_data(selector)
+            if use_ai == False:
+                instagram_profile = self.get_instagram_business_data(selector)
+            else:
+                instagram_profile = self.ai_get_instagram_business_data(selector)
 
-        
+            
 
-        yield instagram_profile
+            yield instagram_profile
+
+            time.sleep(10)
 
         time.sleep(10)
 
