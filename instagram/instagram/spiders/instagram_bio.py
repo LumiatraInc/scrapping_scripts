@@ -1,4 +1,4 @@
-import time
+import time, re
 import ast
 import google.generativeai as genai
 from decouple import config
@@ -39,33 +39,14 @@ class InstagramBioSpider(scrapy.Spider):
 
         selector = Selector(text=self.driver.page_source)
 
-        header_section = selector.css("header > section")
+        use_ai = False
 
-        print(f"header section {''.join(header_section.getall())}")
+        if use_ai == False:
+            instagram_profile = self.get_instagram_business_data(selector)
+        else:
+            instagram_profile = self.ai_get_instagram_business_data(selector)
 
-        html_snippet = "".join(header_section.getall())
-        prompt = self.generate_prompt(html_snippet)
-        answer = self.generate_answer(prompt)
-        print(f"==========> answer: {answer}")
-
-        profile:dict = ast.literal_eval(answer)
-
-        description = rf'{profile.get("bio_description")}'
-
-        instagram_profile = InstagramItem()
-
-        instagram_profile["profile_name"] = profile.get("full_name")
-        instagram_profile["profile_photo"] = profile.get("profile_picture_link")
-        instagram_profile["username"] = profile.get("username")
-        instagram_profile["is_verified"] = profile.get("is_verified")
-        instagram_profile["total_posts"] = profile.get("total_posts")
-        instagram_profile["total_followers"] = profile.get("total_followers")
-        instagram_profile["total_following"] = profile.get("total_following")
-        instagram_profile["bio_description"] = profile.get("bio_description")
-        instagram_profile["thread_name"] = profile.get("thread_name")
-        instagram_profile["thread_link"] = profile.get("thread_link")
-        instagram_profile["source"] = "Instagram"
-        instagram_profile["web_link"] = profile.get("website")
+        
 
         yield instagram_profile
 
@@ -105,4 +86,110 @@ HTML SNIPPET:
         answer = model.generate_content(prompt)
 
         return answer.text
+    
+    def ai_get_instagram_business_data(self, element: Selector) -> InstagramItem:
+        header_section = element.css("header > section")
+
+        print(f"header section {''.join(header_section.getall())}")
+
+        html_snippet = "".join(header_section.getall())
+        prompt = self.generate_prompt(html_snippet)
+        answer = self.generate_answer(prompt)
+        print(f"==========> answer: {answer}")
+
+        profile:dict = ast.literal_eval(answer)
+
+        description = rf'{profile.get("bio_description")}'
+
+        instagram_profile = InstagramItem()
+
+        instagram_profile["profile_name"] = profile.get("full_name")
+        instagram_profile["profile_photo"] = profile.get("profile_picture_link")
+        instagram_profile["username"] = profile.get("username")
+        instagram_profile["is_verified"] = profile.get("is_verified")
+        instagram_profile["total_posts"] = profile.get("total_posts")
+        instagram_profile["total_followers"] = profile.get("total_followers")
+        instagram_profile["total_following"] = profile.get("total_following")
+        instagram_profile["bio_description"] = profile.get("bio_description")
+        instagram_profile["thread_name"] = profile.get("thread_name")
+        instagram_profile["thread_link"] = profile.get("thread_link")
+        instagram_profile["source"] = "Instagram"
+        instagram_profile["web_link"] = profile.get("website")
+
+        return instagram_profile
+    
+    def get_instagram_business_data(self, element: Selector, isLoggedIn: bool=False) -> InstagramItem:
+        instagram_profile = InstagramItem()
+
+        profile_photo: str = None
+        username: str = None
+        thread_link: str = None
+        thread_username: str = None
+        total_posts: str = None
+        total_followers: str = None
+        total_following: str = None
+        bio: str = None
+        web_link: str = None
+        link_name: str = None
+        full_name: str = None
+
+        try:
+            username = self.driver.current_url.split("/")[-2]
+        except Exception as e:
+            pass
+
+        if profile_photo_el := element.css(f"img[alt='{username}\'s profile picture']"):
+            profile_photo = profile_photo_el.css("::attr(src)").get()
+
+        if thread_link_el := element.css("a[href*='www.threads.net/@']"):
+            thread_link = thread_link_el.css("::attr(href)").get()
+            if thread_link:
+                thread_username_pattern = r'@(.+?)'
+                pattern_match = re.search(thread_username_pattern)
+
+                if pattern_match:
+                    thread_username = pattern_match.group()
+
+        if follow_post_el := element.css("ul > li > div >  button._acan._ap30"):
+            if follow_post_el.getall().count() == 3:
+                for index, btn in enumerate(follow_post_el):
+                    if index == 0:
+                        if total_post_el := btn.css("span > span"):
+                            total_posts = total_post_el.css("::text").get()
+                    if index == 1:
+                        if total_followers_el := btn.css("span[title]"):
+                            total_followers = total_followers_el.css("::attr(title)").get()
+                        elif total_followers_el := btn.css("span > span"):
+                            total_followers = total_followers_el.css("::text").get()
+                    if index == 2:
+                        if total_following_el := btn.css("span > span"):
+                            total_following = total_following_el.css("::text").get()
+        
+        if bio_el := element.css("section > div h1"):
+            bio = bio_el.css("::text").get()
+
+        if web_link_el := element.css("a[href*='l.instagram.com']"):
+            web_link = web_link_el.css("::attr(href)").get()
+            link_name = web_link_el.css("span > span::text").get()
+
+        if full_name_el := element.xpath("//section/div[last()]/div/span"):
+            full_name = full_name_el.css("::text").get()
+
+        
+        instagram_profile["profile_name"] = full_name
+        instagram_profile["profile_photo"] = profile_photo
+        instagram_profile["username"] = username
+        # instagram_profile["is_verified"] = is_verified
+        instagram_profile["total_posts"] = total_posts
+        instagram_profile["total_followers"] = total_followers
+        instagram_profile["total_following"] = total_following
+        instagram_profile["bio_description"] = bio
+        instagram_profile["thread_name"] = thread_username
+        instagram_profile["thread_link"] = thread_link
+        instagram_profile["source"] = "Instagram"
+        instagram_profile["web_link"] = web_link
+        instagram_profile["link_name"] = link_name
+
+        return instagram_profile
+        
 
