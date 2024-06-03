@@ -16,6 +16,7 @@ class InstagramItem(scrapy.Item):
     thread_name = scrapy.Field()
     bio_description = scrapy.Field()
     web_link = scrapy.Field()    
+    link_name = scrapy.Field()
     thread_link = scrapy.Field()
     source = scrapy.Field()
 
