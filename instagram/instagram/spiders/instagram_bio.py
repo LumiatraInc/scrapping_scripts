@@ -20,7 +20,7 @@ from instagram.items import InstagramItem
 class InstagramBioSpider(scrapy.Spider):
     name = "instagram_bio"
     allowed_domains = ["instagram.com"]
-    start_urls = ["https://www.instagram.com/lego/"]
+    start_urls = ["https://www.instagram.com/tommyhilfiger/"]
 
     def __init__(self, *args, **kwargs):
         options = Options()
@@ -135,23 +135,25 @@ HTML SNIPPET:
 
         try:
             username = self.driver.current_url.split("/")[-2]
+            print(f"username {username}")
         except Exception as e:
+            print(f"============> error {e}")
             pass
 
-        if profile_photo_el := element.css(f"img[alt='{username}\'s profile picture']"):
+        if profile_photo_el := element.css(f"header img"):
             profile_photo = profile_photo_el.css("::attr(src)").get()
 
         if thread_link_el := element.css("a[href*='www.threads.net/@']"):
             thread_link = thread_link_el.css("::attr(href)").get()
             if thread_link:
-                thread_username_pattern = r'@(.+?)'
-                pattern_match = re.search(thread_username_pattern)
+                thread_username_pattern = r'@([^/\s]+)'
+                pattern_match = re.search(thread_username_pattern, thread_link)
 
                 if pattern_match:
-                    thread_username = pattern_match.group()
+                    thread_username = pattern_match.group(1).split("?")[0]
 
         if follow_post_el := element.css("ul > li > div >  button._acan._ap30"):
-            if follow_post_el.getall().count() == 3:
+            if len(follow_post_el.getall()) == 3:
                 for index, btn in enumerate(follow_post_el):
                     if index == 0:
                         if total_post_el := btn.css("span > span"):
@@ -166,11 +168,16 @@ HTML SNIPPET:
                             total_following = total_following_el.css("::text").get()
         
         if bio_el := element.css("section > div h1"):
-            bio = bio_el.css("::text").get()
+            bio = bio_el.get()
 
         if web_link_el := element.css("a[href*='l.instagram.com']"):
             web_link = web_link_el.css("::attr(href)").get()
             link_name = web_link_el.css("span > span::text").get()
+        elif svg_link_icon_el := element.css("svg[aria-label='Link icon']"):
+            if button_link_el:= svg_link_icon_el.xpath("/parent::*/parent::*/div"):
+                web_link = button_link_el.css("::text").get()
+                link_name = web_link
+
 
         if full_name_el := element.xpath("//section/div[last()]/div/span"):
             full_name = full_name_el.css("::text").get()
