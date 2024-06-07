@@ -1,4 +1,4 @@
-import time
+import time, re
 import scrapy
 from scrapy.responsetypes import Response
 from scrapy.selector import Selector, SelectorList
@@ -16,7 +16,7 @@ from instagram.items import InstagramItem, InstagramPost
 class InstagramInfluencerSpider(scrapy.Spider):
     name = "instagram_influencer"
     allowed_domains = ["instagram.com"]
-    start_urls = ["https://www.instagram.com/tommyhilfiger/"]
+    start_urls = ["https://instagram.com/burberry"]
 
     def __init__(self, *args, **kwargs):
         options = Options()
@@ -36,6 +36,11 @@ class InstagramInfluencerSpider(scrapy.Spider):
         )
         time.sleep(20)
 
+        selector = Selector(text=self.driver.page_source)
+        time.sleep(20)
+        instagram_profile = self.get_instagram_business_data(selector)
+        time.sleep(20)
+
         # check if logged in
         is_logged_in = self.is_logged_in()
         if not is_logged_in:
@@ -51,7 +56,7 @@ class InstagramInfluencerSpider(scrapy.Spider):
         posts_rows_el = self.driver.find_elements(By.XPATH, "//header/parent::*/div/following-sibling::*[1]/div/div")
         print(f"==========> post rows el {posts_rows_el}")
 
-
+        posts: list[dict] = []
         # loop through each row
         for posts_row_el in posts_rows_el:
             # identify each post in row
@@ -70,7 +75,7 @@ class InstagramInfluencerSpider(scrapy.Spider):
                 time.sleep(10)
 
                 # collect instagram post data
-                yield self.get_post_details()
+                posts.append(self.get_post_details())
 
                 # close post
                 if close_btn_el := self.driver.find_elements(By.XPATH, "//*[@aria-label='Close']/parent::*/parent::*"):
@@ -92,10 +97,11 @@ class InstagramInfluencerSpider(scrapy.Spider):
                     )
                     time.sleep(10)
 
+        instagram_profile["posts"] = posts
+        yield instagram_profile
         # close browser
         time.sleep(10)
         self.driver.close()
-
 
     
     def login_to_instagram(self) -> bool:
@@ -107,11 +113,11 @@ class InstagramInfluencerSpider(scrapy.Spider):
             # get input field by input[aria-label='Phone number, username or email address']
             username_input_el = self.driver.find_element(By.CSS_SELECTOR, "input[aria-label='Phone number, username or email address']")
             username_input_el.send_keys(self.login_username)
-            time.sleep(2)
+            time.sleep(10)
             # get password field by input[aria-label='Password']
             password_el = self.driver.find_element(By.CSS_SELECTOR, "input[aria-label='Password']")
             password_el.send_keys(self.login_password)
-            time.sleep(2)
+            time.sleep(10)
             # get the submit button button[type='submit']
             next_btn_el = self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
             next_btn_el.click()
@@ -121,7 +127,7 @@ class InstagramInfluencerSpider(scrapy.Spider):
             lambda driver: driver.execute_script(
                 "return document.readyState") == "complete"
             )
-            time.sleep(15)
+            time.sleep(30)
 
             return True
 
@@ -155,9 +161,9 @@ class InstagramInfluencerSpider(scrapy.Spider):
         except Exception as e:
             return
         
-    def get_post_details(self) -> InstagramPost:
+    def get_post_details(self) -> dict[str, (str | list | dict)]:
         # create instance of instagram item
-        instagram_post = InstagramPost()
+        instagram_post = {}
         video_link : str = None
         photo_link: str = None
         image_description: str = None
@@ -205,9 +211,87 @@ class InstagramInfluencerSpider(scrapy.Spider):
 
 
                 # recaptcha-anchor
-
-
         return instagram_post
 
 
 
+    def get_instagram_business_data(self, element: Selector, isLoggedIn: bool=False) -> InstagramItem:
+        instagram_profile = InstagramItem()
+
+        profile_photo: str = None
+        username: str = None
+        thread_link: str = None
+        thread_username: str = None
+        total_posts: str = None
+        total_followers: str = None
+        total_following: str = None
+        bio: str = None
+        web_link: str = None
+        link_name: str = None
+        full_name: str = None
+
+        try:
+            username = self.driver.current_url.split("/")[-2]
+            print(f"username {username}")
+        except Exception as e:
+            print(f"============> error {e}")
+            pass
+
+        if profile_photo_el := element.css(f"header img"):
+            profile_photo = profile_photo_el.css("::attr(src)").get()
+
+        if thread_link_el := element.css("a[href*='www.threads.net/@']"):
+            thread_link = thread_link_el.css("::attr(href)").get()
+            if thread_link:
+                thread_username_pattern = r'@([^/\s]+)'
+                pattern_match = re.search(thread_username_pattern, thread_link)
+
+                if pattern_match:
+                    thread_username = pattern_match.group(1).split("?")[0]
+
+        if follow_post_el := element.css("ul > li > div >  button._acan._ap30"):
+            if len(follow_post_el.getall()) == 3:
+                for index, btn in enumerate(follow_post_el):
+                    if index == 0:
+                        if total_post_el := btn.css("span > span"):
+                            total_posts = total_post_el.css("::text").get()
+                    if index == 1:
+                        if total_followers_el := btn.css("span[title]"):
+                            total_followers = total_followers_el.css("::attr(title)").get()
+                        elif total_followers_el := btn.css("span > span"):
+                            total_followers = total_followers_el.css("::text").get()
+                    if index == 2:
+                        if total_following_el := btn.css("span > span"):
+                            total_following = total_following_el.css("::text").get()
+        
+        if bio_el := element.css("section > div h1"):
+            bio = bio_el.get()
+
+        if web_link_el := element.css("a[href*='l.instagram.com']"):
+            web_link = web_link_el.css("::attr(href)").get()
+            link_name = web_link_el.css("span > span::text").get()
+        elif svg_link_icon_el := element.css("svg[aria-label='Link icon']"):
+            if button_link_el:= svg_link_icon_el.xpath("/parent::*/parent::*/div"):
+                web_link = button_link_el.css("::text").get()
+                link_name = web_link
+
+
+        if full_name_el := element.xpath("//section/div[last()]/div/span"):
+            full_name = full_name_el.css("::text").get()
+
+        
+        instagram_profile["profile_name"] = full_name
+        instagram_profile["profile_photo"] = profile_photo
+        instagram_profile["username"] = username
+        # instagram_profile["is_verified"] = is_verified
+        instagram_profile["total_posts"] = total_posts
+        instagram_profile["total_followers"] = total_followers
+        instagram_profile["total_following"] = total_following
+        instagram_profile["bio_description"] = bio
+        instagram_profile["thread_name"] = thread_username
+        instagram_profile["thread_link"] = thread_link
+        instagram_profile["source"] = "Instagram"
+        instagram_profile["web_link"] = web_link
+        instagram_profile["link_name"] = link_name
+
+        return instagram_profile
