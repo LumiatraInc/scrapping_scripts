@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
+from instagram.items import InstagramItem, InstagramPost
 
 class InstagramInfluencerSpider(scrapy.Spider):
     name = "instagram_influencer"
@@ -54,8 +55,10 @@ class InstagramInfluencerSpider(scrapy.Spider):
         # loop through each row
         for posts_row_el in posts_rows_el:
             # identify each post in row
-            posts_el = posts_row_el.find_elements(By.XPATH, "/div")
+            posts_el = posts_row_el.find_elements(By.CSS_SELECTOR, "div > a")
             # loop through each post
+            print(f"==================> posts_el {posts_el}")
+            time.sleep(3)
             for post_el in posts_el:
                 # click on the post
                 post_el.click()
@@ -67,6 +70,7 @@ class InstagramInfluencerSpider(scrapy.Spider):
                 time.sleep(10)
 
                 # collect instagram post data
+                yield self.get_post_details()
 
                 # close post
                 if close_btn_el := self.driver.find_elements(By.XPATH, "//*[@aria-label='Close']/parent::*/parent::*"):
@@ -88,7 +92,6 @@ class InstagramInfluencerSpider(scrapy.Spider):
                     )
                     time.sleep(10)
 
-        yield {"message": "hello"}
         # close browser
         time.sleep(10)
         self.driver.close()
@@ -152,3 +155,59 @@ class InstagramInfluencerSpider(scrapy.Spider):
         except Exception as e:
             return
         
+    def get_post_details(self) -> InstagramPost:
+        # create instance of instagram item
+        instagram_post = InstagramPost()
+        video_link : str = None
+        photo_link: str = None
+        image_description: str = None
+        total_likes: str = None
+        time_posted: str = None
+        post_caption: str = None
+        tagged_links: list = []
+
+        selector = Selector(text=self.driver.page_source)
+        # check whether post is photo or video by checking for element div > video
+        if video_photo := selector.css("div > video"):
+            # get video link of post by css selector div > video
+            video_link = video_photo.css("::attr(src)").get()
+            instagram_post["video_link"] = video_link
+
+        else:
+            # get picture link the post by css selector div[role='button'][tabindex="-1"] > div > img
+            if photo_link_el := selector.css("div[role='button'][tabindex='-1'] > div > img"):
+                image_description = photo_link_el.css("::attr(alt)").get()
+                photo_link = photo_link_el.css("::attr(src)").get()
+                instagram_post["image_description"] = image_description
+                instagram_post["photo_link"] = photo_link
+
+        # get total likes from post by xpath //div/div/div/div/section/following-sibling::section//a/span/span
+        if total_likes_el := selector.xpath("//div/div/div/div/section/following-sibling::section//a/span/span"):
+            total_likes = total_likes_el.css("::text").get()
+            instagram_post["total_likes"] = total_likes
+
+        # get time post was created by xpath //div/div/div/div/section/following-sibling::*[3]/div/div/a/span/time
+        if time_post_el := selector.xpath("//div/div/div/div/section/following-sibling::*[3]/div/div/a/span/time"):
+            time_posted = time_post_el.css("::attr(datetime)").get()
+            instagram_post["time_posted"] = time_posted
+
+        # get post caption by xpath //div/div/div/div/section/following-sibling::div/ul/div[@role='button']/li//div/h1
+        if post_caption_el := selector.xpath("//div/div/div/div/section/following-sibling::div/ul/div[@role='button']/li//div/h1"):
+            post_caption = post_caption_el.get()
+            instagram_post["post_caption"] = post_caption
+            # get tags from caption by xpath //div/div/div/div/section/following-sibling::div/ul/div[@role='button']/li//div/h1/a
+            if tagged_links_el := post_caption_el.css("a"):
+                tagged_links = [
+                    {"tag_name": tag.css("::text").get(), "tag_link": tag.css("::attr(href)").get()}
+                    for tag in tagged_links_el
+                ]
+                instagram_post["tagged_links"] = tagged_links
+
+
+                # recaptcha-anchor
+
+
+        return instagram_post
+
+
+
