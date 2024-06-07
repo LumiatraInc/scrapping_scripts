@@ -5,6 +5,7 @@
 
 import scrapy
 
+
 class InstagramItem(scrapy.Item):
     username = scrapy.Field()
     profile_name = scrapy.Field()
@@ -15,8 +16,19 @@ class InstagramItem(scrapy.Item):
     total_following = scrapy.Field()
     thread_name = scrapy.Field()
     bio_description = scrapy.Field()
-    web_link = scrapy.Field()    
+    web_link = scrapy.Field()
     link_name = scrapy.Field()
     thread_link = scrapy.Field()
     source = scrapy.Field()
+    posts = scrapy.Field()
+
+
+class InstagramPost(scrapy.Item):
+    video_link = scrapy.Field()
+    photo_link = scrapy.Field()
+    image_description = scrapy.Field()
+    total_likes = scrapy.Field()
+    time_posted = scrapy.Field()
+    post_caption = scrapy.Field()
+    tagged_links = scrapy.Field()
 
