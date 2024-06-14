@@ -3,10 +3,12 @@ import scrapy
 from scrapy.responsetypes import Response
 from scrapy.selector import Selector, SelectorList
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
@@ -21,7 +23,7 @@ class InstagramInfluencerSpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         options = Options()
         options.add_argument("--headless")  # prevent the browser from opening
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         self.login_mail = "mardocheejarib64@gmail.com"
         self.login_username = "mardocheelumi"
         self.login_password = "GazelleTu"
