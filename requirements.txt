@@ -56,11 +56,14 @@ pyOpenSSL==24.1.0
 pyparsing==3.1.2
 PySocks==1.7.1
 python-decouple==3.8
+python-dotenv==1.0.1
 queuelib==1.7.0
 requests==2.32.2
 requests-file==2.1.0
 rsa==4.9
 Scrapy==2.11.2
+scrapyd==1.4.3
+scrapyd-client==1.2.3
 selenium==4.21.0
 service-identity==24.1.0
 setuptools==70.0.0
@@ -75,9 +78,11 @@ trio==0.25.1
 trio-websocket==0.11.1
 Twisted==24.3.0
 typing_extensions==4.12.0
+uberegg==0.1.1
 uritemplate==4.1.1
 urllib3==2.2.1
 w3lib==2.1.2
 wcwidth==0.2.13
+webdriver-manager==4.0.1
 wsproto==1.2.0
 zope.interface==6.4.post2
