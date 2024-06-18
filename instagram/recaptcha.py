@@ -6,7 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 # 105.29.165.242
 
 api_key = "33b2bba01bbbfaa76c0d9e7f7b47f3c3"
-server = "http://www.botmasterlabs.net/"
+server = "http://www.cbalancer.hashcell.com:45888"
 
 solver = TwoCaptcha(api_key, server=server)
 
