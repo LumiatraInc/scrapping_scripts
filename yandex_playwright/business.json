@@ -1,582 +1,954 @@
 [
     {
-        "business_name": "Table restaurant - Bruno Verjus",
-        "business_website": "http://table.paris/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "4 ratings",
-        "business_rating": "4.2",
-        "business_address": "Paris, 12e Arrondissement, Rue de Prague, 3",
-        "business_phone_number": "+33 1 43 43 12 26"
-    },
-    {
-        "business_name": "Benoit Paris",
-        "business_website": "http://www.benoit-paris.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, Rue Saint-Martin, 20",
-        "business_phone_number": "+33 1 42 72 25 76"
-    },
-    {
-        "business_name": "Restaurant de la Tour",
-        "business_website": "http://www.restaurant-delatour.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 15e Arrondissement, Rue D\u00e9saix, 6",
-        "business_phone_number": "+33 1 43 06 04 24"
-    },
-    {
-        "business_name": "Restaurant Santorini Paris",
+        "business_name": "Barney's New York",
         "business_website": null,
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "Paris, 5e Arrondissement, Rue de la Harpe, 25",
-        "business_phone_number": "+33 1 43 54 39 47"
+        "business_address": "New York, Manhattan Borough, Madison Avenue, 660",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Angelina Paris",
-        "business_website": "http://www.angelina-paris.fr/",
-        "is_verified": false,
-        "business_category": "Soft drinks bar",
-        "total_ratings": "13 ratings",
-        "business_rating": "4.8",
-        "business_address": "Paris, Rue de Rivoli, 226",
-        "business_phone_number": "+33 1 42 60 82 00"
-    },
-    {
-        "business_name": "L\u00e9on de Bruxelles",
-        "business_website": "http://www.leon-de-bruxelles.fr/",
-        "is_verified": false,
-        "business_category": "Cafe",
-        "total_ratings": "3 ratings",
-        "business_rating": "4.1",
-        "business_address": "Paris, Boulevard Saint-Germain, 131",
-        "business_phone_number": "+33 1 43 26 45 95"
-    },
-    {
-        "business_name": "Le Bar \u00e0 Hu\u00eetres Saint-Germain",
-        "business_website": "http://www.lebarahuitres.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "5 ratings",
-        "business_rating": "3.8",
-        "business_address": "Paris, 5e Arrondissement, Rue Saint-Jacques, 33",
-        "business_phone_number": "+33 1 44 07 27 37"
-    },
-    {
-        "business_name": "Orsay Museum",
-        "business_website": "http://www.musee-orsay.fr/fr/visite/services/restaurants.html",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "3 ratings",
-        "business_rating": "4.1",
-        "business_address": "Paris, 7e Arrondissement, Rue de la L\u00e9gion d'Honneur, 1",
-        "business_phone_number": "+33 1 45 49 47 03"
-    },
-    {
-        "business_name": "Palanka Paris, restaurant africain Officielle's Page",
-        "business_website": "http://www.lepalanka.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 4e Arrondissement, Rue des Lombards, 15",
-        "business_phone_number": "+33 1 42 77 29 26"
-    },
-    {
-        "business_name": "Angelina Paris",
-        "business_website": "http://www.angelina-paris.fr/",
-        "is_verified": false,
-        "business_category": "Soft drinks bar",
-        "total_ratings": "13 ratings",
-        "business_rating": "4.8",
-        "business_address": "Paris, Rue de Rivoli, 226",
-        "business_phone_number": "+33 1 42 60 82 00"
-    },
-    {
-        "business_name": "Matignon Paris",
-        "business_website": "http://matignon-paris.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 8e Arrondissement, Avenue Matignon, 3",
-        "business_phone_number": "+33 1 42 89 64 72"
-    },
-    {
-        "business_name": "Restaurant Philippe Excoffier Paris 7",
-        "business_website": "http://philippe-excoffier.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 7e Arrondissement, Rue de l'Exposition, 18",
-        "business_phone_number": "+33 1 45 51 78 08"
-    },
-    {
-        "business_name": "Au vieux Paris d'Arcole",
-        "business_website": "http://restaurantauvieuxparis.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 4e Arrondissement, Rue Chanoinesse, 24",
-        "business_phone_number": "+33 1 40 51 78 52"
-    },
-    {
-        "business_name": "Bar 8, Mandarin Oriental, Paris",
-        "business_website": "http://mandarinoriental.com/paris",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 1er Arrondissement, Rue Saint-Honor\u00e9, 251",
-        "business_phone_number": "+33 1 70 98 78 88"
-    },
-    {
-        "business_name": "L\u00e9on de Bruxelles",
-        "business_website": "http://www.leon-de-bruxelles.fr/",
-        "is_verified": false,
-        "business_category": "Cafe",
-        "total_ratings": "3 ratings",
-        "business_rating": "4.1",
-        "business_address": "Paris, Boulevard Saint-Germain, 131",
-        "business_phone_number": "+33 1 43 26 45 95"
-    },
-    {
-        "business_name": "Restaurant Relais Louis XIII",
-        "business_website": "http://www.relaislouis13.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, 6e Arrondissement, Rue des Grands-Augustins, 8",
-        "business_phone_number": "+33 1 43 26 75 96"
-    },
-    {
-        "business_name": "Le Bar \u00e0 Hu\u00eetres Saint-Germain",
-        "business_website": "http://www.lebarahuitres.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "5 ratings",
-        "business_rating": "3.8",
-        "business_address": "Paris, 5e Arrondissement, Rue Saint-Jacques, 33",
-        "business_phone_number": "+33 1 44 07 27 37"
-    },
-    {
-        "business_name": "Friday in Paris",
+        "business_name": "Manhattan Mall",
         "business_website": null,
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "Paris, 18e Arrondissement, Rue Puget, 2",
-        "business_phone_number": "+33 1 00 00 00 00"
+        "business_address": "New York, Manhattan Borough, West 33rd Street, 100",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Le Caf\u00e9 Pouchkine",
-        "business_website": "http://cafe-pouchkine.fr/",
+        "business_name": "Macy's",
+        "business_website": "https://l.macys.com/",
         "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Paris, Boulevard Haussmann, 64",
-        "business_phone_number": "+33 142824 331"
-    },
-    {
-        "business_name": "McDonald's",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Fast food",
-        "total_ratings": "5 ratings",
-        "business_rating": "2.9",
-        "business_address": "Paris, 2e Arrondissement, Boulevard Poissonni\u00e8re, 4",
-        "business_phone_number": "+33 1 40 22 98 85"
-    },
-    {
-        "business_name": "Restaurant Gaya",
-        "business_website": "http://restaurantgaya.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "7e Arrondissement, Rue de Saint-Simon, 6",
-        "business_phone_number": "+33 1 45 44 73 73"
-    },
-    {
-        "business_name": "Restaurant Le Coupe-Chou",
-        "business_website": "http://www.lecoupechou.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "5e Arrondissement, Rue de Lanneau, 11",
-        "business_phone_number": "+33 1 46 33 68 69"
-    },
-    {
-        "business_name": "Rice & Beans Paris",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Canteen",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "2e Arrondissement, Rue Greneta, 22",
-        "business_phone_number": "+33 1 73 70 46 09"
-    },
-    {
-        "business_name": "Constantia Paris",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue des Martyrs, 94",
-        "business_phone_number": "+33 9 53 19 33 98"
-    },
-    {
-        "business_name": "Tuk Tuk Tha\u00ef Paris",
-        "business_website": "http://www.tuktukthai.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "8e Arrondissement, Rue de Laborde, 47",
-        "business_phone_number": "+33 1 43 87 49 88"
-    },
-    {
-        "business_name": "Restaurant Monjul",
-        "business_website": "http://www.monjul.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "4e Arrondissement, Rue des Blancs-Manteaux, 28",
-        "business_phone_number": "+33 1 42 74 40 15"
-    },
-    {
-        "business_name": "Restaurant Le Cinq - Four Seasons Hotel George V, Paris",
-        "business_website": "http://restaurant-lecinq.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "8e Arrondissement, Avenue George V, 31",
-        "business_phone_number": "+33 1 49 52 71 54"
-    },
-    {
-        "business_name": "Restaurant Le Mesturet",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue de Richelieu, 77",
-        "business_phone_number": "+33 1 42 97 40 68"
-    },
-    {
-        "business_name": "Le Bistrot de Paris, depuis 1965",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "7e Arrondissement, Rue de Lille, 33",
-        "business_phone_number": "+33 1 42 61 16 83"
-    },
-    {
-        "business_name": "Sushi-B Paris",
-        "business_website": "http://sushi-b-fr.com/",
-        "is_verified": false,
-        "business_category": "Sushi bar",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "2e Arrondissement, Rue Rameau, 5",
-        "business_phone_number": "+33 1 40 26 52 87"
-    },
-    {
-        "business_name": "La Cri\u00e9e Paris Bonne Nouvelle",
-        "business_website": "http://lacriee.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "2e Arrondissement, Boulevard de Bonne Nouvelle, 31",
-        "business_phone_number": "+33 1 55 34 80 80"
-    },
-    {
-        "business_name": "Restaurant David Toutain",
-        "business_website": "http://www.davidtoutain.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "7e Arrondissement, Rue Surcouf, 29",
-        "business_phone_number": "+33 1 45 50 11 10"
-    },
-    {
-        "business_name": "Les Bouquinistes",
-        "business_website": "https://www.guysavoy.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "6e Arrondissement, Quai des Grands Augustins, 1",
-        "business_phone_number": "+33 1 43 25 45 94"
-    },
-    {
-        "business_name": "Restaurant La\u00ef La\u00ef-Ken",
-        "business_website": "http://www.bigpicky.com/lailaiken",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue Sainte-Anne, 7",
-        "business_phone_number": "+33 1 40 15 96 90"
-    },
-    {
-        "business_name": "Mac\u00e9o Restaurant & Bar",
-        "business_website": "http://www.maceorestaurant.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "1er Arrondissement, Rue des Petits Champs, 17",
-        "business_phone_number": "+33 1 85 15 22 56"
-    },
-    {
-        "business_name": "Bar Romain Rue Caumartin Paris 9",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "9e Arrondissement, Rue de Caumartin, 6",
-        "business_phone_number": "+33 1 42 68 07 89"
-    },
-    {
-        "business_name": "Bistrot du Croissant",
-        "business_website": "http://www.lataverneducroissant.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue Montmartre, 146",
-        "business_phone_number": "+33 1 42 33 35 04"
-    },
-    {
-        "business_name": "Flunch",
-        "business_website": "http://restaurant.flunch.fr/paris/flunch-paris-beaubourg/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "4 ratings",
-        "business_rating": "4.2",
-        "business_address": "Rue Beaubourg, 21",
-        "business_phone_number": "+33 1 40 29 09 78"
-    },
-    {
-        "business_name": "Caf\u00e9 Marly",
-        "business_website": "http://beaumarly.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "4 ratings",
-        "business_rating": "3.2",
-        "business_address": "Rue de Rivoli, 93",
-        "business_phone_number": "+33 1 49 26 06 60"
-    },
-    {
-        "business_name": "Restaurant Baosian",
-        "business_website": "http://www.baosian.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "9e Arrondissement, Rue du Faubourg Montmartre, 67",
-        "business_phone_number": "+33 1 55 32 33 64"
-    },
-    {
-        "business_name": "Le Napol\u00e9on Paris",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "10e Arrondissement, Rue du Faubourg Saint-Denis, 73",
-        "business_phone_number": "+33 1 47 70 21 36"
-    },
-    {
-        "business_name": "Le First",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue de Rivoli, 234",
-        "business_phone_number": "+33 1 44 77 10 40"
-    },
-    {
-        "business_name": "Restaurant Bizan",
-        "business_website": null,
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Rue Sainte-Anne, 56",
-        "business_phone_number": "+33 1 42 96 67 76"
-    },
-    {
-        "business_name": "Mucha Caf\u00e9 Paris",
-        "business_website": "http://www.muchacafe.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "Boulevard Saint-Germain, 227",
-        "business_phone_number": "+33 1 45 51 06 30"
-    },
-    {
-        "business_name": "Aux Pr\u00e9s",
-        "business_website": "http://www.restaurantauxpres.com/",
-        "is_verified": false,
-        "business_category": "Fast food",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "6e Arrondissement, Rue du Dragon, 6",
-        "business_phone_number": "+33 1 45 48 29 68"
-    },
-    {
-        "business_name": "Itin\u00e9raires",
-        "business_website": "http://restaurant-itineraires.com/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "5e Arrondissement, Rue de Pontoise, 5",
-        "business_phone_number": "+33 1 46 33 60 11"
-    },
-    {
-        "business_name": "Les Fines Gueules",
-        "business_website": "http://www.lesfinesgueules.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "1er Arrondissement, Croix-des-Petits-Champs Street, 43",
-        "business_phone_number": "+33 1 42 61 35 41"
-    },
-    {
-        "business_name": "Chez Gladines Les Halles",
-        "business_website": "http://www.chezgladines-leshalles.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "1er Arrondissement, Rue des Halles, 11b",
-        "business_phone_number": "+33 1 42 21 07 00"
-    },
-    {
-        "business_name": "Flottes",
-        "business_website": "http://brasserieflottes.fr/",
-        "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": "4 ratings",
+        "business_category": "Shopping mall",
+        "total_ratings": "39 ratings",
         "business_rating": "4.3",
-        "business_address": "1er Arrondissement, Rue Cambon, 2",
-        "business_phone_number": "+33 1 42 60 80 89"
+        "business_address": "New York, Manhattan Borough, West 34th Street, 151",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Sizin",
-        "business_website": "http://www.sizin-restaurant.com/",
+        "business_name": "Westfield World Trade Center",
+        "business_website": "https://www.westfield.com/westfieldworldtradecenter",
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "9e Arrondissement, Rue Saint-Georges, 47",
-        "business_phone_number": "+33 1 44 63 02 28"
+        "business_address": "New York, Manhattan Borough, Greenwich Street, 185",
+        "business_phone_number": "+1 212 284 9982",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/westfieldworldtradecenter",
+            "instagram": "https://www.instagram.com/westfieldworldtradecenter"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Iss\u00e9 Izakaya",
-        "business_website": "http://www.izakaya-isse.fr/",
+        "business_name": "Shopping center",
+        "business_website": null,
         "is_verified": false,
-        "business_category": "Cafe",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "Rue de Richelieu, 45",
-        "business_phone_number": "+33 1 42 96 26 60"
+        "business_address": "New York, Manhattan Borough, East 23rd Street, 202",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Chez Fran\u00e7oise",
-        "business_website": "http://chezfrancoise.com/",
+        "business_name": "Showfields",
+        "business_website": "https://www.showfields.com/",
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "7e Arrondissement, Rue Fabert, 2",
-        "business_phone_number": "+33 1 47 05 49 03"
+        "business_address": "United States, New York, 11 Bond Street",
+        "business_phone_number": "+1 646 389 9402",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/1883227615335272"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Ferdi Bar Gourmet",
-        "business_website": "http://www.ferdi-restaurant.com/",
+        "business_name": "\u041d\u0435\u0431\u043e\u0441\u043a\u0440\u0435\u0431 \u0411\u043b\u0438\u0437\u043d\u0438\u0446\u044b",
+        "business_website": null,
         "is_verified": false,
-        "business_category": "Restaurant",
-        "total_ratings": null,
-        "business_rating": null,
-        "business_address": "1er Arrondissement, Rue du Mont Thabor, 32",
-        "business_phone_number": "+33 1 42 60 82 52"
+        "business_category": "Shopping mall",
+        "total_ratings": "3 ratings",
+        "business_rating": "4.1",
+        "business_address": "New York, Manhattan Borough, Greenwich Street, 24",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Les 110 de Taillevent Paris",
-        "business_website": "http://www.les-110-taillevent-paris.com/fr",
+        "business_name": "Shopping mall",
+        "business_website": null,
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "8e Arrondissement, Rue du Faubourg Saint-Honor\u00e9, 195",
-        "business_phone_number": "+33 1 40 74 20 20"
+        "business_address": "New York, Fort Greene Place, 157-205",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Secret 8 by Buddha-Bar",
-        "business_website": "http://www.buddhabar.com/restaurants/secret-8-paris",
+        "business_name": "Gumption Coffee",
+        "business_website": "http://www.gumptioncoffee.com/",
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "8e Arrondissement, Rue Boissy d'Anglas, 8",
-        "business_phone_number": "+33 1 53 05 90 39"
+        "business_address": "United States, New York, 940 Broadway",
+        "business_phone_number": "+1 845 605 6218",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Les 110 de Taillevent",
-        "business_website": "http://www.les-110-taillevent-paris.com/",
+        "business_name": "Fresh Meadows Place",
+        "business_website": null,
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "8e Arrondissement, Rue du Faubourg Saint-Honor\u00e9, 6",
-        "business_phone_number": "+33 1 40 74 20 20"
+        "business_address": "New York, Queens County",
+        "business_phone_number": "+1 877 265 7417",
+        "social_medias": {
+            "youtube": "http://youtube.com/user/FederalRealtyTV"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Bistrot d'Edmond",
-        "business_website": "http://www.bistrotedmond.fr/",
+        "business_name": "Staten Island Mall",
+        "business_website": "https://www.statenislandmall.com/en.html",
         "is_verified": false,
-        "business_category": "Restaurant",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "2e Arrondissement, Rue du 4 Septembre, 23",
-        "business_phone_number": "+33 1 47 42 93 51"
+        "business_address": "United States, Staten Island, 2655 Richmond Avenue",
+        "business_phone_number": "+1 718 761 6666",
+        "social_medias": {
+            "twitter": "http://twitter.com/statenislmall",
+            "facebook": "https://www.facebook.com/156632734271",
+            "instagram": "https://www.instagram.com/statenislmall/"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     },
     {
-        "business_name": "Chez la Vieille",
-        "business_website": "http://www.chezlavieille.fr/",
+        "business_name": "Metro Mall",
+        "business_website": null,
         "is_verified": false,
-        "business_category": "Cafe",
+        "business_category": "Shopping mall",
         "total_ratings": null,
         "business_rating": null,
-        "business_address": "1er Arrondissement, Rue Bailleul, 1",
-        "business_phone_number": "+33 1 42 60 15 78"
+        "business_address": "New York, Queens Borough, Metropolitan Avenue, 66-26",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Gotham Plaza",
+        "business_website": "https://www.acadiarealty.com/properties/search/property/168-gotham-plaza-new-york",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York City, 149-169 E 125th St",
+        "business_phone_number": "+1 914 288 3330",
+        "social_medias": {
+            "twitter": "https://twitter.com/AcadiaRealty"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Georgetowne Shopping Center",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Brooklyn, 2181 Ralph Avenue",
+        "business_phone_number": "+1 877 265 7417",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Shopping mall",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, East 106th Street, 26",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Broadway Plaza Outparcel",
+        "business_website": "https://www.regencycenters.com/property/detail/80020/BroadwayPlazaOutparcel1&2",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough, West 230th Street, 171",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "http://facebook.com/regencycenters",
+            "instagram": "http://instagram.com/regencycenters"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Amboy Shopping Center",
+        "business_website": "https://www.acadiarealty.com/properties/search/property/36-amboy-shopping-center-staten-island",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Staten Island, 4343 Amboy Rd",
+        "business_phone_number": "+1 914 288 3330",
+        "social_medias": {
+            "twitter": "https://twitter.com/AcadiaRealty"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Atlantic Terminal Mall",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Flatbush Avenue, 139",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "The Boulevard",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Staten Island",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "90 - 30 Metropolitan Avenue",
+        "business_website": "https://www.regencycenters.com/property/detail/80004/90-30MetropolitanAvenue",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Queens County",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/291973771556012",
+            "instagram": "https://www.instagram.com/regencycenters/"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u041c\u0430\u0440\u0448\u0430\u043b\u043b\u0437",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bartow Avenue, 2012",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Nelly's & Co",
+        "business_website": "https://nellysandco.com/",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 47 West 47th Street",
+        "business_phone_number": "+1 212 997 1975",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Empire Stores",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Brooklyn Borough, Dumbo",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Liberty Court",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Rector Place, 200",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Malidani Jewelry",
+        "business_website": "http://www.malidanijewelry.com/",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 1200 6th Avenue",
+        "business_phone_number": "+1 212 869 0677",
+        "social_medias": {
+            "facebook": "http://www.facebook.com/473339009541513"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Shops at Grand Avenue",
+        "business_website": "https://www.acadiarealty.com/properties/search/property/91-shops-at-grand-avenue-queens",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Queens County",
+        "business_phone_number": "+1 914 288 3330",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Bartow Mall",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bartow Avenue, 2061",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Gaabi & Co., Inc",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 420 Madison Ave Suite 1105",
+        "business_phone_number": "+1 212 730 5409",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Hudson Yards",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Manhattan Borough, Hudson Yards",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Clocktower Plaza",
+        "business_website": "https://www.regencycenters.com/property/detail/80030/ClocktowerPlazaShoppingCtr",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Queens County",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/228917097812094",
+            "instagram": "https://www.instagram.com/regencycenters/"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "101 7th Avenue",
+        "business_website": "https://www.regencycenters.com/property/detail/80002/1017thAvenue",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 101 7th Avenue",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "http://facebook.com/regencycenters",
+            "instagram": "http://instagram.com/regencycenters"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Empire Outlets",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Staten Island",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "TruVal - Sell Diamonds & Gold Jewelry",
+        "business_website": "https://truval.com/",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 37 West 47th Street 6th floor #600",
+        "business_phone_number": "+1 212 938 1002",
+        "social_medias": {
+            "facebook": "http://www.facebook.com/1387031834649442"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Manhattan West",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New York, 1 Manhattan West Plaza, 385 9th Ave",
+        "business_phone_number": "+1 929 286 7519",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u041c\u0430\u0442 \u041c\u0430\u0440\u043a\u0435\u0442",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Best Selfie Camera Phones",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "State of New York, Nassau County, South Floral Park",
+        "business_phone_number": "+1 202 555 0191",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u0411\u0430\u0440\u043d\u0441 \u0438 \u041d\u043e\u0431\u043b\u0441",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u041e\u043b\u0434 \u041d\u044d\u0432\u0438",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u0420\u0435\u0439\u043c\u0443\u0440 \u0438 \u0424\u043b\u0430\u043d\u0438\u0433\u0430\u043d",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u0421\u0442\u044d\u043f\u043b\u0441",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "\u041a\u0435\u0439 \u043c\u0430\u0440\u0442",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Bronx Borough",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "One World Trade Center",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Business center",
+        "total_ratings": "29 ratings",
+        "business_rating": "4.2",
+        "business_address": "New York, Manhattan Borough, Fulton Street, 285",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "North Ridge Shopping Center",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/New%20Rochelle-NY-10804/northridgeplaza",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, New Rochelle, 77 Quaker Ridge Road",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "http://facebook.com/brixmor",
+            "instagram": "http://instagram.com/brixmorpropertygroup"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "FreshPits Natural Products",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Nassau County, Baldwin",
+        "business_phone_number": "+1 516 304 0950",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/1061478487380724"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "The Mills at Jersey Gardens",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Union County, Elizabeth",
+        "business_phone_number": "+1 908 354 5900",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/128703364971"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Falcaro's Plaza",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Lawrence-NY-11559-1109/falcarosplaza",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Lawrence, 274-296 Burnside Avenue",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/107023001912576",
+            "instagram": "https://www.instagram.com/brixmorpropertygroup"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Mamaroneck Centre",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Mamaroneck-NY-10543/apmamaroneck",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New York, Westchester County, New Rochelle",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/101012335854635"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Village Square Shopping Center",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Larchmont-NY-10538/villagesquare",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Larchmont, 1262 Boston Post Road",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/107726885174498"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "The Point at Garden City Park",
+        "business_website": "https://www.regencycenters.com/property/detail/60748/ThePointatGardenCityPark",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Garden City Park, 2301-2349 Jericho Turnpike",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "http://facebook.com/regencycenters",
+            "instagram": "http://instagram.com/regencycenters"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Rockville Centre",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Rockville%20Centre-NY-11570-3801/rockvillecentre",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Rockville Centre, 150-168 North Village Avenue",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "http://facebook.com/brixmor",
+            "instagram": "http://instagram.com/brixmorpropertygroup"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Springfield Place",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Springfield-NJ-7081/springfieldplace",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Springfield, 727 Morris Turnpike",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "http://facebook.com/brixmor",
+            "instagram": "http://instagram.com/brixmorpropertygroup"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Newport Crossing",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Hudson County, Jersey City",
+        "business_phone_number": "+1 201 626 2025",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/1393353414316372"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Valley Stream Shopping Center",
+        "business_website": "https://www.regencycenters.com/property/detail/60928/Valley-Stream",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Valley Stream, 207-233 West Merrick Rd & 63 N",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/101170239249177",
+            "instagram": "https://www.instagram.com/regencycenters/"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Hewlett Crossing",
+        "business_website": "https://www.regencycenters.com/property/detail/60824/HewlettCrossingI",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Hewlett, 1296-1340 Broadway",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "http://facebook.com/regencycenters",
+            "instagram": "http://instagram.com/regencycenters"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "The Gallery At Westbury Plaza",
+        "business_website": "http://www.galleryatwestburyplaza.com/",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Garden City, 900 Old Country Road",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/379956702091871"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Parkway Plaza - Carle Place",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Carle%20Place-NY-11514/parkwayplazacarleplace",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Carle Place, 215 Glen Cove Road",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/113749394564018"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Stewart Plaza",
+        "business_website": "https://properties.brixmor.com/p/retail-real-estate/Garden%20City-NY-11530/stewartplaza",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Garden City, 650 Stewart Avenue",
+        "business_phone_number": "+1 916 619 3203",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/109474971662842"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Newport Plaza",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Jersey City, 125 18th St",
+        "business_phone_number": "+1 201 626 2078",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/1563981567190858"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Roosevelt Field",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Garden City, 630 Old Country Rd",
+        "business_phone_number": "+1 516 742 8000",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/129595113741510"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Elmwood Park Shopping Center",
+        "business_website": "https://www.acadiarealty.com/properties/search/property/55-elmwood-park-shopping-center-elmwood-park",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Bergen County, Borough of Elmwood Park",
+        "business_phone_number": "+1 914 288 3330",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "East Meadow Shopping Center",
+        "business_website": "https://www.regencycenters.com/property/detail/60929/East-Meadow",
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, East Meadow, 1897-1899 Front St",
+        "business_phone_number": "+1 203 635 5560",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/112000311483929",
+            "instagram": "https://www.instagram.com/regencycenters/"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Troy Hills Shopping Center",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, Parsippany, 1157 US-46",
+        "business_phone_number": "+1 877 265 7417",
+        "social_medias": {
+            "twitter": "https://twitter.com/FederalRealty",
+            "facebook": "https://www.facebook.com/profile.php?id=100063788782293",
+            "youtube": "https://www.youtube.com/user/FederalRealtyTV"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Shopping mall",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Hudson County, Jersey City",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Jersey city cry",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "United States, J CY, 271 NEWARK AV, FLR 1",
+        "business_phone_number": "+1 201 414 5934",
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "Edgewater Towne Center",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Bergen County, Borough of Edgewater",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "The Shops at Riverside",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Bergen County, City of Hackensack",
+        "business_phone_number": "+1 201 489 2212",
+        "social_medias": {
+            "facebook": "https://www.facebook.com/137492142934725"
+        },
+        "business_services": {},
+        "search_term": "shopping malls in New York"
+    },
+    {
+        "business_name": "American Dream Meadowlands",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Shopping mall",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "New Jersey, Bergen County, Borough of East Rutherford",
+        "business_phone_number": null,
+        "social_medias": {},
+        "business_services": {},
+        "search_term": "shopping malls in New York"
     }
 ]
