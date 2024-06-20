@@ -1,0 +1,582 @@
+[
+    {
+        "business_name": "Table restaurant - Bruno Verjus",
+        "business_website": "http://table.paris/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "4 ratings",
+        "business_rating": "4.2",
+        "business_address": "Paris, 12e Arrondissement, Rue de Prague, 3",
+        "business_phone_number": "+33 1 43 43 12 26"
+    },
+    {
+        "business_name": "Benoit Paris",
+        "business_website": "http://www.benoit-paris.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, Rue Saint-Martin, 20",
+        "business_phone_number": "+33 1 42 72 25 76"
+    },
+    {
+        "business_name": "Restaurant de la Tour",
+        "business_website": "http://www.restaurant-delatour.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 15e Arrondissement, Rue D\u00e9saix, 6",
+        "business_phone_number": "+33 1 43 06 04 24"
+    },
+    {
+        "business_name": "Restaurant Santorini Paris",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 5e Arrondissement, Rue de la Harpe, 25",
+        "business_phone_number": "+33 1 43 54 39 47"
+    },
+    {
+        "business_name": "Angelina Paris",
+        "business_website": "http://www.angelina-paris.fr/",
+        "is_verified": false,
+        "business_category": "Soft drinks bar",
+        "total_ratings": "13 ratings",
+        "business_rating": "4.8",
+        "business_address": "Paris, Rue de Rivoli, 226",
+        "business_phone_number": "+33 1 42 60 82 00"
+    },
+    {
+        "business_name": "L\u00e9on de Bruxelles",
+        "business_website": "http://www.leon-de-bruxelles.fr/",
+        "is_verified": false,
+        "business_category": "Cafe",
+        "total_ratings": "3 ratings",
+        "business_rating": "4.1",
+        "business_address": "Paris, Boulevard Saint-Germain, 131",
+        "business_phone_number": "+33 1 43 26 45 95"
+    },
+    {
+        "business_name": "Le Bar \u00e0 Hu\u00eetres Saint-Germain",
+        "business_website": "http://www.lebarahuitres.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "5 ratings",
+        "business_rating": "3.8",
+        "business_address": "Paris, 5e Arrondissement, Rue Saint-Jacques, 33",
+        "business_phone_number": "+33 1 44 07 27 37"
+    },
+    {
+        "business_name": "Orsay Museum",
+        "business_website": "http://www.musee-orsay.fr/fr/visite/services/restaurants.html",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "3 ratings",
+        "business_rating": "4.1",
+        "business_address": "Paris, 7e Arrondissement, Rue de la L\u00e9gion d'Honneur, 1",
+        "business_phone_number": "+33 1 45 49 47 03"
+    },
+    {
+        "business_name": "Palanka Paris, restaurant africain Officielle's Page",
+        "business_website": "http://www.lepalanka.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 4e Arrondissement, Rue des Lombards, 15",
+        "business_phone_number": "+33 1 42 77 29 26"
+    },
+    {
+        "business_name": "Angelina Paris",
+        "business_website": "http://www.angelina-paris.fr/",
+        "is_verified": false,
+        "business_category": "Soft drinks bar",
+        "total_ratings": "13 ratings",
+        "business_rating": "4.8",
+        "business_address": "Paris, Rue de Rivoli, 226",
+        "business_phone_number": "+33 1 42 60 82 00"
+    },
+    {
+        "business_name": "Matignon Paris",
+        "business_website": "http://matignon-paris.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 8e Arrondissement, Avenue Matignon, 3",
+        "business_phone_number": "+33 1 42 89 64 72"
+    },
+    {
+        "business_name": "Restaurant Philippe Excoffier Paris 7",
+        "business_website": "http://philippe-excoffier.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 7e Arrondissement, Rue de l'Exposition, 18",
+        "business_phone_number": "+33 1 45 51 78 08"
+    },
+    {
+        "business_name": "Au vieux Paris d'Arcole",
+        "business_website": "http://restaurantauvieuxparis.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 4e Arrondissement, Rue Chanoinesse, 24",
+        "business_phone_number": "+33 1 40 51 78 52"
+    },
+    {
+        "business_name": "Bar 8, Mandarin Oriental, Paris",
+        "business_website": "http://mandarinoriental.com/paris",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 1er Arrondissement, Rue Saint-Honor\u00e9, 251",
+        "business_phone_number": "+33 1 70 98 78 88"
+    },
+    {
+        "business_name": "L\u00e9on de Bruxelles",
+        "business_website": "http://www.leon-de-bruxelles.fr/",
+        "is_verified": false,
+        "business_category": "Cafe",
+        "total_ratings": "3 ratings",
+        "business_rating": "4.1",
+        "business_address": "Paris, Boulevard Saint-Germain, 131",
+        "business_phone_number": "+33 1 43 26 45 95"
+    },
+    {
+        "business_name": "Restaurant Relais Louis XIII",
+        "business_website": "http://www.relaislouis13.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 6e Arrondissement, Rue des Grands-Augustins, 8",
+        "business_phone_number": "+33 1 43 26 75 96"
+    },
+    {
+        "business_name": "Le Bar \u00e0 Hu\u00eetres Saint-Germain",
+        "business_website": "http://www.lebarahuitres.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "5 ratings",
+        "business_rating": "3.8",
+        "business_address": "Paris, 5e Arrondissement, Rue Saint-Jacques, 33",
+        "business_phone_number": "+33 1 44 07 27 37"
+    },
+    {
+        "business_name": "Friday in Paris",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, 18e Arrondissement, Rue Puget, 2",
+        "business_phone_number": "+33 1 00 00 00 00"
+    },
+    {
+        "business_name": "Le Caf\u00e9 Pouchkine",
+        "business_website": "http://cafe-pouchkine.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Paris, Boulevard Haussmann, 64",
+        "business_phone_number": "+33 142824 331"
+    },
+    {
+        "business_name": "McDonald's",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Fast food",
+        "total_ratings": "5 ratings",
+        "business_rating": "2.9",
+        "business_address": "Paris, 2e Arrondissement, Boulevard Poissonni\u00e8re, 4",
+        "business_phone_number": "+33 1 40 22 98 85"
+    },
+    {
+        "business_name": "Restaurant Gaya",
+        "business_website": "http://restaurantgaya.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "7e Arrondissement, Rue de Saint-Simon, 6",
+        "business_phone_number": "+33 1 45 44 73 73"
+    },
+    {
+        "business_name": "Restaurant Le Coupe-Chou",
+        "business_website": "http://www.lecoupechou.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "5e Arrondissement, Rue de Lanneau, 11",
+        "business_phone_number": "+33 1 46 33 68 69"
+    },
+    {
+        "business_name": "Rice & Beans Paris",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Canteen",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "2e Arrondissement, Rue Greneta, 22",
+        "business_phone_number": "+33 1 73 70 46 09"
+    },
+    {
+        "business_name": "Constantia Paris",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue des Martyrs, 94",
+        "business_phone_number": "+33 9 53 19 33 98"
+    },
+    {
+        "business_name": "Tuk Tuk Tha\u00ef Paris",
+        "business_website": "http://www.tuktukthai.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "8e Arrondissement, Rue de Laborde, 47",
+        "business_phone_number": "+33 1 43 87 49 88"
+    },
+    {
+        "business_name": "Restaurant Monjul",
+        "business_website": "http://www.monjul.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "4e Arrondissement, Rue des Blancs-Manteaux, 28",
+        "business_phone_number": "+33 1 42 74 40 15"
+    },
+    {
+        "business_name": "Restaurant Le Cinq - Four Seasons Hotel George V, Paris",
+        "business_website": "http://restaurant-lecinq.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "8e Arrondissement, Avenue George V, 31",
+        "business_phone_number": "+33 1 49 52 71 54"
+    },
+    {
+        "business_name": "Restaurant Le Mesturet",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue de Richelieu, 77",
+        "business_phone_number": "+33 1 42 97 40 68"
+    },
+    {
+        "business_name": "Le Bistrot de Paris, depuis 1965",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "7e Arrondissement, Rue de Lille, 33",
+        "business_phone_number": "+33 1 42 61 16 83"
+    },
+    {
+        "business_name": "Sushi-B Paris",
+        "business_website": "http://sushi-b-fr.com/",
+        "is_verified": false,
+        "business_category": "Sushi bar",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "2e Arrondissement, Rue Rameau, 5",
+        "business_phone_number": "+33 1 40 26 52 87"
+    },
+    {
+        "business_name": "La Cri\u00e9e Paris Bonne Nouvelle",
+        "business_website": "http://lacriee.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "2e Arrondissement, Boulevard de Bonne Nouvelle, 31",
+        "business_phone_number": "+33 1 55 34 80 80"
+    },
+    {
+        "business_name": "Restaurant David Toutain",
+        "business_website": "http://www.davidtoutain.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "7e Arrondissement, Rue Surcouf, 29",
+        "business_phone_number": "+33 1 45 50 11 10"
+    },
+    {
+        "business_name": "Les Bouquinistes",
+        "business_website": "https://www.guysavoy.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "6e Arrondissement, Quai des Grands Augustins, 1",
+        "business_phone_number": "+33 1 43 25 45 94"
+    },
+    {
+        "business_name": "Restaurant La\u00ef La\u00ef-Ken",
+        "business_website": "http://www.bigpicky.com/lailaiken",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue Sainte-Anne, 7",
+        "business_phone_number": "+33 1 40 15 96 90"
+    },
+    {
+        "business_name": "Mac\u00e9o Restaurant & Bar",
+        "business_website": "http://www.maceorestaurant.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "1er Arrondissement, Rue des Petits Champs, 17",
+        "business_phone_number": "+33 1 85 15 22 56"
+    },
+    {
+        "business_name": "Bar Romain Rue Caumartin Paris 9",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "9e Arrondissement, Rue de Caumartin, 6",
+        "business_phone_number": "+33 1 42 68 07 89"
+    },
+    {
+        "business_name": "Bistrot du Croissant",
+        "business_website": "http://www.lataverneducroissant.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue Montmartre, 146",
+        "business_phone_number": "+33 1 42 33 35 04"
+    },
+    {
+        "business_name": "Flunch",
+        "business_website": "http://restaurant.flunch.fr/paris/flunch-paris-beaubourg/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "4 ratings",
+        "business_rating": "4.2",
+        "business_address": "Rue Beaubourg, 21",
+        "business_phone_number": "+33 1 40 29 09 78"
+    },
+    {
+        "business_name": "Caf\u00e9 Marly",
+        "business_website": "http://beaumarly.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "4 ratings",
+        "business_rating": "3.2",
+        "business_address": "Rue de Rivoli, 93",
+        "business_phone_number": "+33 1 49 26 06 60"
+    },
+    {
+        "business_name": "Restaurant Baosian",
+        "business_website": "http://www.baosian.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "9e Arrondissement, Rue du Faubourg Montmartre, 67",
+        "business_phone_number": "+33 1 55 32 33 64"
+    },
+    {
+        "business_name": "Le Napol\u00e9on Paris",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "10e Arrondissement, Rue du Faubourg Saint-Denis, 73",
+        "business_phone_number": "+33 1 47 70 21 36"
+    },
+    {
+        "business_name": "Le First",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue de Rivoli, 234",
+        "business_phone_number": "+33 1 44 77 10 40"
+    },
+    {
+        "business_name": "Restaurant Bizan",
+        "business_website": null,
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue Sainte-Anne, 56",
+        "business_phone_number": "+33 1 42 96 67 76"
+    },
+    {
+        "business_name": "Mucha Caf\u00e9 Paris",
+        "business_website": "http://www.muchacafe.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Boulevard Saint-Germain, 227",
+        "business_phone_number": "+33 1 45 51 06 30"
+    },
+    {
+        "business_name": "Aux Pr\u00e9s",
+        "business_website": "http://www.restaurantauxpres.com/",
+        "is_verified": false,
+        "business_category": "Fast food",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "6e Arrondissement, Rue du Dragon, 6",
+        "business_phone_number": "+33 1 45 48 29 68"
+    },
+    {
+        "business_name": "Itin\u00e9raires",
+        "business_website": "http://restaurant-itineraires.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "5e Arrondissement, Rue de Pontoise, 5",
+        "business_phone_number": "+33 1 46 33 60 11"
+    },
+    {
+        "business_name": "Les Fines Gueules",
+        "business_website": "http://www.lesfinesgueules.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "1er Arrondissement, Croix-des-Petits-Champs Street, 43",
+        "business_phone_number": "+33 1 42 61 35 41"
+    },
+    {
+        "business_name": "Chez Gladines Les Halles",
+        "business_website": "http://www.chezgladines-leshalles.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "1er Arrondissement, Rue des Halles, 11b",
+        "business_phone_number": "+33 1 42 21 07 00"
+    },
+    {
+        "business_name": "Flottes",
+        "business_website": "http://brasserieflottes.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": "4 ratings",
+        "business_rating": "4.3",
+        "business_address": "1er Arrondissement, Rue Cambon, 2",
+        "business_phone_number": "+33 1 42 60 80 89"
+    },
+    {
+        "business_name": "Sizin",
+        "business_website": "http://www.sizin-restaurant.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "9e Arrondissement, Rue Saint-Georges, 47",
+        "business_phone_number": "+33 1 44 63 02 28"
+    },
+    {
+        "business_name": "Iss\u00e9 Izakaya",
+        "business_website": "http://www.izakaya-isse.fr/",
+        "is_verified": false,
+        "business_category": "Cafe",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "Rue de Richelieu, 45",
+        "business_phone_number": "+33 1 42 96 26 60"
+    },
+    {
+        "business_name": "Chez Fran\u00e7oise",
+        "business_website": "http://chezfrancoise.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "7e Arrondissement, Rue Fabert, 2",
+        "business_phone_number": "+33 1 47 05 49 03"
+    },
+    {
+        "business_name": "Ferdi Bar Gourmet",
+        "business_website": "http://www.ferdi-restaurant.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "1er Arrondissement, Rue du Mont Thabor, 32",
+        "business_phone_number": "+33 1 42 60 82 52"
+    },
+    {
+        "business_name": "Les 110 de Taillevent Paris",
+        "business_website": "http://www.les-110-taillevent-paris.com/fr",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "8e Arrondissement, Rue du Faubourg Saint-Honor\u00e9, 195",
+        "business_phone_number": "+33 1 40 74 20 20"
+    },
+    {
+        "business_name": "Secret 8 by Buddha-Bar",
+        "business_website": "http://www.buddhabar.com/restaurants/secret-8-paris",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "8e Arrondissement, Rue Boissy d'Anglas, 8",
+        "business_phone_number": "+33 1 53 05 90 39"
+    },
+    {
+        "business_name": "Les 110 de Taillevent",
+        "business_website": "http://www.les-110-taillevent-paris.com/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "8e Arrondissement, Rue du Faubourg Saint-Honor\u00e9, 6",
+        "business_phone_number": "+33 1 40 74 20 20"
+    },
+    {
+        "business_name": "Bistrot d'Edmond",
+        "business_website": "http://www.bistrotedmond.fr/",
+        "is_verified": false,
+        "business_category": "Restaurant",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "2e Arrondissement, Rue du 4 Septembre, 23",
+        "business_phone_number": "+33 1 47 42 93 51"
+    },
+    {
+        "business_name": "Chez la Vieille",
+        "business_website": "http://www.chezlavieille.fr/",
+        "is_verified": false,
+        "business_category": "Cafe",
+        "total_ratings": null,
+        "business_rating": null,
+        "business_address": "1er Arrondissement, Rue Bailleul, 1",
+        "business_phone_number": "+33 1 42 60 15 78"
+    }
+]
