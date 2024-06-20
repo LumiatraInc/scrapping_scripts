@@ -133,6 +133,41 @@ def get_business_phone_number(element: ElementHandle) -> (str | None):
     # get the phonenumber with the selector div.sidebar-view__panel._no-padding span[itemprop="telephone"]
     if business_phone_number_el := element.query_selector("div.business-contacts-view__block span[itemprop='telephone']"):
         return business_phone_number_el.text_content()
+    
+def get_business_social_media(element: ElementHandle) -> dict[str, str]:
+    social_medias: dict = {}
+    # get social media name with selector div.business-contacts-view__social-links div.business-contacts-view__social-button > a::attr(aria-label).split(" ")[-1]
+    if social_media_name_els := element.query_selector_all("div.business-contacts-view__social-links div.business-contacts-view__social-button > a"):
+        for social_media in social_media_name_els:
+            social_media_name = "media"
+            social_media_link = None
+            if social_media_name_el := social_media.get_attribute("aria-label"):
+                social_media_name = social_media_name_el.split(" ")[-1]
+            if social_media_link_el := social_media.get_attribute("href"):
+                social_media_link = social_media_link_el
+        
+            social_medias[social_media_name] = social_media_link
+
+        
+    return social_medias
+
+
+def click_feature_tab(element: ElementHandle, page: Page):
+    if feature_tab_el := element.query_selector("div.tabs-select-view__title._name_features"):
+        feature_tab_el.scroll_into_view_if_needed()
+        feature_tab_el.click()
+
+def get_business_services(element: ElementHandle) -> dict[str, list[str]]:
+    business_services: dict[str, list] = {}
+    if feature_titles_el := element.query_selector_all("div.business-features-view__group-title > div"):
+        feature_titles = [title.text_content() for title in feature_titles_el]
+        if feature_items_els := element.query_selector_all("div.sidebar-view__panel._no-padding div.features-cut-view div.business-features-view__bool-list"):
+            for title, items in zip(feature_titles, feature_items_els):
+                if services_el := items.query_selector_all("div.business-features-view__bool-text"):
+                    services = [service.text_content() for service in services_el]
+                    business_services[title] = services
+
+    return business_services
 
 
 def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | int | list | dict | bool)]:
@@ -143,12 +178,24 @@ def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | in
     business_category = get_business_category(element=element)
     total_ratings = get_total_ratings(element=element)
     business_rating = get_business_rating(element=element)
-    business_website = get_business_website(element=element)
-    business_address = get_business_address(element=element)
-    business_phone_number  = get_business_phone_number(element=element)
 
     # click on overview tab
     click_overview_tab(element=element, page=page)
+    time.sleep(3)
+
+    business_website = get_business_website(element=element)
+    business_address = get_business_address(element=element)
+    business_phone_number  = get_business_phone_number(element=element)
+    social_medias = get_business_social_media(element=element)
+
+
+    # click on feature tab
+    click_feature_tab(element=element, page=page)
+    time.sleep(3)
+    
+    business_services = get_business_services(element=element)
+
+    
     business_info["business_name"] = business_name
     business_info["business_website"] = business_website
     business_info["is_verified"] = is_verified
@@ -157,6 +204,8 @@ def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | in
     business_info["business_rating"] = business_rating
     business_info["business_address"] = business_address
     business_info["business_phone_number"] = business_phone_number
+    business_info["social_medias"] = social_medias
+    business_info["business_services"] = business_services
 
     return business_info
 
@@ -172,7 +221,7 @@ def get_business_by_search(page: Page) -> list [dict]:
 
     # scroll the section
     search_result_el = page.query_selector("div.scroll__container")
-    scroll_search_result_list(page=page)
+    # scroll_search_result_list(page=page)
 
     # get all the businesses
     if businesses_items_els := page.query_selector_all("li.search-snippet-view > div > div > div"):
