@@ -12,7 +12,7 @@ from utils.convert_to_file import write_to_json_file
 from utils.clean_data import clean_data
 
 url = "https://yandex.com/maps"
-search_term = "restaurants in Paris"
+search_term = "shopping malls in New York"
 
 
 def get_business_by_category(page: Page):
@@ -76,7 +76,7 @@ def scroll_search_result_list(page: Page):
         elif number_of_loaded_businesses == len(loaded_business_items_els):
             # if number loading retries gets to 5, we have reached the end of the list
             # otherwise increment loading retries
-            if number_of_loading_retries == 5:
+            if number_of_loading_retries == 10:
                 print("End of list")
                 break
             else:
@@ -206,6 +206,7 @@ def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | in
     business_info["business_phone_number"] = business_phone_number
     business_info["social_medias"] = social_medias
     business_info["business_services"] = business_services
+    business_info["search_term"] = search_term
 
     return business_info
 
@@ -221,27 +222,16 @@ def get_business_by_search(page: Page) -> list [dict]:
 
     # scroll the section
     search_result_el = page.query_selector("div.scroll__container")
-    # scroll_search_result_list(page=page)
+    scroll_search_result_list(page=page)
 
     # get all the businesses
-    if businesses_items_els := page.query_selector_all("li.search-snippet-view > div > div > div"):
+    if businesses_items_els := page.query_selector_all("li.search-snippet-view div.search-business-snippet-view__title"):
         # loop through business
         businesses: list[dict] = []
         for business_item_el in businesses_items_els:
             time.sleep(random.randint(3, 10))
-            # get business data id through selector div.search-snippet-view__body _type_business::attr(data-object)
-            if data_id_el := business_item_el.query_selector("div.search-snippet-view__body _type_business"):
-                data_id = data_id_el.get_attribute("data-object")
-                print(f"{data_id=}")
-
-            # get business place coordinate through selector div.search-snippet-view__body _type_business::attr(data-coordinates)
-            if business_coordinates_el := business_item_el.query_selector("div.search-snippet-view__body _type_business"):
-                business_coordinate = business_coordinates_el.get_attribute(
-                    "data-coordinates")
-                print(f"{business_coordinate=}")
 
             # click at a business for the sidebar view to show.
-            # The container is gotten with the selector div.sidebar-view__panel._no-padding
             try:
                 business_item_el.click()
             except Exception as e:
