@@ -1,4 +1,4 @@
-import time, math
+import time, math, signal
 import random
 import asyncio
 from playwright.sync_api import (
@@ -8,11 +8,23 @@ from playwright.sync_api import (
 )
 
 from utils.types import GetBusinessMode
-from utils.convert_to_file import write_to_json_file
+from utils.convert_to_file import (
+    write_to_json_file,
+    create_open_json_file,
+    close_json_file,
+    write_to_opened_json_file
+)
 from utils.clean_data import clean_data
 
 url = "https://yandex.com/maps"
-search_term = "shopping malls in New York"
+search_term = "clubs in New York"
+
+def handler(signum, frame):
+    print(f"Signal received: {signum}")
+    exit(0)
+
+# Register the signal handler for SIGINT
+signal.signal(signal.SIGINT, handler)
 
 
 def get_business_by_category(page: Page):
@@ -69,6 +81,8 @@ def scroll_search_result_list(page: Page):
         time.sleep(random.randint(4, 6))
 
 
+        loaded_business_items_els = page.query_selector_all(
+                "li.search-snippet-view")
         # stop scrolling when the div div.add-business-view shows on the bottom
         if page.query_selector("div.add-business-view"):
             print("End of list")
@@ -170,8 +184,15 @@ def get_business_services(element: ElementHandle) -> dict[str, list[str]]:
     return business_services
 
 
-def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | int | list | dict | bool)]:
+def get_business_info(element: ElementHandle, page: Page) -> tuple[dict[str, (str | int | list | dict | bool)], bool]:
     business_info: dict[str, (str | int | list | dict | bool)] = {}
+
+
+    business_address = get_business_address(element=element)
+    # if it has a different address return success as false
+    if search_term.split(" in ")[-1] not in business_address:
+        return {}, False
+
 
     business_name = get_business_name(element=element)
     is_verified = is_business_verified(element=element)
@@ -184,7 +205,6 @@ def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | in
     time.sleep(3)
 
     business_website = get_business_website(element=element)
-    business_address = get_business_address(element=element)
     business_phone_number  = get_business_phone_number(element=element)
     social_medias = get_business_social_media(element=element)
 
@@ -208,10 +228,10 @@ def get_business_info(element: ElementHandle, page: Page) -> dict[str, (str | in
     business_info["business_services"] = business_services
     business_info["search_term"] = search_term
 
-    return business_info
+    return business_info, True
 
 
-def get_business_by_search(page: Page) -> list [dict]:
+def get_business_by_search(page: Page):
     # get search input
     input_el = page.get_by_placeholder("Search places and addresses")
     input_el.fill(search_term)
@@ -222,14 +242,17 @@ def get_business_by_search(page: Page) -> list [dict]:
 
     # scroll the section
     search_result_el = page.query_selector("div.scroll__container")
-    scroll_search_result_list(page=page)
+    # scroll_search_result_list(page=page)
 
     # get all the businesses
     if businesses_items_els := page.query_selector_all("li.search-snippet-view div.search-business-snippet-view__title"):
         # loop through business
-        businesses: list[dict] = []
-        for business_item_el in businesses_items_els:
+        for index, business_item_el in enumerate(businesses_items_els):
+            if index == 0:
+                # create the json file
+                create_open_json_file()
             time.sleep(random.randint(3, 10))
+            "hello".split()
 
             # click at a business for the sidebar view to show.
             try:
@@ -241,10 +264,16 @@ def get_business_by_search(page: Page) -> list [dict]:
             time.sleep(10)
             # get the business card
             if business_section_el := page.query_selector("div.sidebar-view__panel._no-padding"):
-                business_info = get_business_info(element=business_section_el, page=page)
-                businesses.append(business_info)
+                business_info, success = get_business_info(element=business_section_el, page=page)
+                if not success:
+                    continue
 
-        return businesses
+                write_to_opened_json_file(business_data=business_info)
+
+
+            if index == (len(businesses_items_els) - 1):
+                close_json_file()
+        
 
 def main():
     with sync_playwright() as playwright:
@@ -262,14 +291,10 @@ def main():
         if get_business_mode == GetBusinessMode.CATEGORY:
             get_business_by_category(page=page)
         else:
-            businesses = get_business_by_search(page=page)
+             get_business_by_search(page=page)
 
-        print(f"{businesses=}")
-        clean_business = clean_data(data=businesses)
-        print(f"{clean_business=}")
+        
         time.sleep(5)
-        # write to json file
-        write_to_json_file(data=clean_business)
 
         time.sleep(10)
         browser.close()
